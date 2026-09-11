@@ -12,9 +12,9 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:var(--sans);zoom:1.1;
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);
     font-size:15.5px;line-height:1.75;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;padding:0 22px}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:60px 0 90px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:60px 0 90px;zoom:1.1}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
 
@@ -62,6 +62,16 @@
     background:#fff;padding:3px 12px;border-radius:999px;line-height:1.55;white-space:nowrap}
   code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:.86em;background:#f2f4f7;padding:1px 5px;border-radius:4px;color:#33404c}
   hr.soft{border:none;border-top:1px solid var(--line);margin:26px 0}
+
+  /* ---------- Side navigation ---------- */
+  .side-nav{position:fixed;top:50%;right:26px;transform:translateY(-50%);z-index:50;
+    display:flex;flex-direction:column;gap:2px;text-align:right}
+  .side-nav a{font-size:15px;color:var(--faint);text-decoration:none;padding:5px 12px 5px 0;
+    border-right:2px solid transparent;transition:color .15s,border-color .15s,font-weight .15s;line-height:1.4}
+  .side-nav a:hover{color:var(--accent)}
+  .side-nav a.active{color:var(--accent);font-weight:700;border-right-color:var(--accent)}
+  @media(max-width:1180px){ .side-nav{display:none} }
+  @media print{ .side-nav{display:none} }
 
   /* ---------- Capabilities ---------- */
   .cap{margin-bottom:20px}
@@ -120,10 +130,22 @@
 </style>
 </head>
 <body>
+
+<!-- ============ SIDE NAV ============ -->
+<nav class="side-nav">
+  <a href="#top">소개</a>
+  <a href="#skills">핵심 역량</a>
+  <a href="#experience">경력사항</a>
+  <a href="#projects">대표 프로젝트</a>
+  <a href="#trouble">문제해결</a>
+  <a href="#stack">기술 스택</a>
+  <a href="#etc">기타 활동</a>
+</nav>
+
 <div class="wrap">
 
   <!-- ============ HEADER ============ -->
-  <header>
+  <header id="top">
     <h1>이제안 <span class="light">Full-stack Developer</span></h1>
     <div class="subtitle">제약·헬스케어 플랫폼 — 서버부터 프론트, 모바일 API까지</div>
     <div class="contact">
@@ -147,7 +169,7 @@
   </header>
 
   <!-- ============ CORE SKILLS ============ -->
-  <section>
+  <section id="skills">
     <div class="sec">Core Skills <span class="ko">핵심 역량</span></div>
 
     <div class="cap">
@@ -184,7 +206,7 @@
   </section>
 
   <!-- ============ EXPERIENCE ============ -->
-  <section>
+  <section id="experience">
     <div class="sec">Experience <span class="ko">경력사항</span></div>
 
     <div class="item">
@@ -225,7 +247,7 @@
   </section>
 
   <!-- ============ PROJECTS ============ -->
-  <section>
+  <section id="projects">
     <div class="sec">Projects <span class="ko">대표 프로젝트</span></div>
 
     <!-- 1 Dr.Peach -->
@@ -373,7 +395,7 @@
   </section>
 
   <!-- ============ TROUBLE SHOOTING ============ -->
-  <section>
+  <section id="trouble">
     <div class="sec">Trouble Shooting <span class="ko">대표 문제해결 사례</span></div>
 
     <div class="case">
@@ -416,7 +438,7 @@
   </section>
 
   <!-- ============ SKILLS ============ -->
-  <section>
+  <section id="stack">
     <div class="sec">Tech Stack <span class="ko">기술 스택</span></div>
     <table>
       <tr><td class="k">Language</td><td class="v">PHP · Kotlin · Java · TypeScript/JavaScript · SQL</td></tr>
@@ -430,7 +452,7 @@
   </section>
 
   <!-- ============ ETC ============ -->
-  <section>
+  <section id="etc">
     <div class="sec">Etc <span class="ko">기타 활동 · 개인 프로젝트 · 사내 기여</span></div>
 
     <div class="item">
@@ -492,5 +514,32 @@
   </section>
 
 </div>
+
+<script>
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.side-nav a'));
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var targets = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+
+    function setActive(id){
+      links.forEach(function(l){ l.classList.remove('active'); });
+      if(map[id]) map[id].classList.add('active');
+    }
+
+    if('IntersectionObserver' in window){
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      targets.forEach(function(t){ obs.observe(t); });
+    }
+
+    // 최상단이면 '소개' 활성화
+    window.addEventListener('scroll', function(){
+      if(window.scrollY < 80) setActive('top');
+    }, { passive: true });
+    setActive('top');
+  })();
+</script>
 </body>
 </html>
