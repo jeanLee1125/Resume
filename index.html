@@ -1,533 +1,471 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>이제안 · 경력기술서</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>경력기술서 — 이제안 (AX Engineer)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-  :root{
-    --text:#1a1a1a; --muted:#5b6570; --faint:#98a1ac; --line:#e5e7eb;
-    --accent:#2456c9; --amber:#b07d09; --bg:#ffffff; --maxw:820px;
-    --sans:'Pretendard','Apple SD Gothic Neo',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;
+  :root {
+    --text: #1f2328;
+    --muted: #6b7280;
+    --faint: #9ca3af;
+    --line: #e5e7eb;
+    --line-strong: #d1d5db;
+    --accent: #2563eb;
+    --bg: #ffffff;
+    --soft: #f8fafc;
+    --fs: 16px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:var(--sans);
-    font-size:15.5px;line-height:1.75;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;padding:0 22px}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:60px 0 90px;zoom:1.1}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-
-  /* ---------- Header ---------- */
-  header{padding-bottom:8px}
-  h1{font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
-  h1 .light{color:var(--muted);font-weight:600;font-size:20px}
-  .subtitle{margin-top:8px;font-size:15px;color:var(--muted);font-weight:500}
-  .contact{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
-
-  .intro{margin-top:26px;color:#33404c;font-size:15.5px;line-height:1.85}
-  .intro strong{color:var(--text);font-weight:700}
-
-  /* ---------- Stats ---------- */
-  .stats{display:flex;margin:28px 0 4px;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-  .stats>div{flex:1;text-align:center;padding:16px 10px;border-right:1px solid var(--line)}
-  .stats>div:last-child{border-right:none}
-  .stats b{display:block;font-size:24px;font-weight:800;letter-spacing:-.02em}
-  .stats span{display:block;margin-top:3px;font-size:12px;color:var(--muted)}
-
-  /* ---------- Sections ---------- */
-  section{margin-top:50px}
-  .sec{font-size:14px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-    border-bottom:2px solid var(--text);padding-bottom:9px;margin-bottom:24px;
-    display:flex;align-items:baseline;gap:10px}
-  .sec .ko{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0;text-transform:none}
-
-  /* ---------- Items (experience / projects) ---------- */
-  .item{margin-bottom:30px}
-  .item:last-child{margin-bottom:0}
-  .item-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
-  .item-title{font-size:17.5px;font-weight:700;letter-spacing:-.01em}
-  .item-title .sub{font-size:13px;color:var(--faint);font-weight:600}
-  .item-date{font-size:13px;color:var(--muted);font-weight:600;white-space:nowrap;flex:none}
-  .item-org{margin-top:3px;font-size:13.5px;color:var(--muted);font-style:italic}
-  .item-desc{margin-top:9px;font-size:14.5px;color:#33404c;line-height:1.8}
-  .item-desc b{color:var(--text)}
-  .item ul{margin-top:10px;padding-left:2px;list-style:none}
-  .item ul li{position:relative;padding-left:15px;margin-bottom:7px;font-size:14px;color:#354049;line-height:1.75}
-  .item ul li::before{content:'–';position:absolute;left:0;color:var(--faint)}
-  .item ul li b{color:var(--text);font-weight:700}
-  .cat{font-weight:700;color:var(--accent)}
-  .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:7px}
-  .tags .t{display:inline-block;font-size:12.5px;color:var(--accent);border:1px solid #cdd9f2;
-    background:#fff;padding:3px 12px;border-radius:999px;line-height:1.55;white-space:nowrap}
-  code{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:.86em;background:#f2f4f7;padding:1px 5px;border-radius:4px;color:#33404c}
-  hr.soft{border:none;border-top:1px solid var(--line);margin:26px 0}
-
-  /* ---------- Side navigation ---------- */
-  .side-nav{position:fixed;top:50%;right:26px;transform:translateY(-50%);z-index:50;
-    display:flex;flex-direction:column;gap:2px;text-align:right}
-  .side-nav a{font-size:15px;color:var(--faint);text-decoration:none;padding:5px 12px 5px 0;
-    border-right:2px solid transparent;transition:color .15s,border-color .15s,font-weight .15s;line-height:1.4}
-  .side-nav a:hover{color:var(--accent)}
-  .side-nav a.active{color:var(--accent);font-weight:700;border-right-color:var(--accent)}
-  @media(max-width:1180px){ .side-nav{display:none} }
-  @media print{ .side-nav{display:none} }
-
-  /* ---------- Capabilities ---------- */
-  .cap{margin-bottom:20px}
-  .cap:last-child{margin-bottom:0}
-  .cap h3{font-size:15px;font-weight:700;margin-bottom:6px}
-  .cap ul{list-style:none;padding-left:2px}
-  .cap li{position:relative;padding-left:15px;margin-bottom:4px;font-size:14px;color:#354049;line-height:1.7}
-  .cap li::before{content:'–';position:absolute;left:0;color:var(--faint)}
-  .cap li b{color:var(--text)}
-
-  /* ---------- Sub-phase project list (다름) ---------- */
-  .phase-label{margin-top:16px;font-size:14px;font-weight:700}
-  .phase-label .role{color:var(--accent)}
-  .phase-label .d{float:right;font-size:12.5px;color:var(--muted);font-weight:600}
-  .plist{list-style:none;margin-top:8px;padding-left:2px}
-  .plist li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;
-    font-size:13.5px;color:#354049;border-bottom:1px solid var(--line)}
-  .plist li:last-child{border-bottom:none}
-  .plist .d{font-size:12.5px;color:var(--faint);white-space:nowrap;flex:none}
-  .plist .pt{color:var(--faint);font-size:12px;font-weight:400}
-
-  /* ---------- Trouble shooting ---------- */
-  .case{margin-bottom:22px}
-  .case:last-child{margin-bottom:0}
-  .case-title{font-size:15.5px;font-weight:700;margin-bottom:8px}
-  .case-title .case-proj{font-size:12px;font-weight:600;color:var(--muted);font-style:italic}
-  .case-row{display:flex;gap:10px;padding:4px 0;font-size:14px;line-height:1.7}
-  .case-lbl{flex:none;width:38px;font-weight:700;color:var(--accent);font-size:13px}
-  .case-body{color:#354049}
-  .case-body b{color:var(--text)}
-
-  /* ---------- Skill table ---------- */
-  table{width:100%;border-collapse:collapse;font-size:14px}
-  td{padding:11px 4px;border-bottom:1px solid var(--line);vertical-align:top}
-  tr:last-child td{border-bottom:none}
-  td.k{font-weight:700;width:140px;white-space:nowrap;color:var(--text)}
-  td.v{color:#354049}
-
-  /* ---------- Responsive ---------- */
-  @media(max-width:640px){
-    .wrap{padding:40px 0 64px}
-    h1{font-size:27px}
-    .stats{flex-direction:column}
-    .stats>div{border-right:none;border-bottom:1px solid var(--line)}
-    .stats>div:last-child{border-bottom:none}
-    .item-head{flex-direction:column;gap:2px}
-    td.k{width:auto}
-    .phase-label .d{float:none;display:block;margin-top:2px}
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: "Pretendard", "Pretendard Variable", -apple-system, "Apple SD Gothic Neo", sans-serif;
+    font-size: var(--fs); line-height: 1.7; letter-spacing: -0.01em;
+    word-break: keep-all; overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
   }
-  @media print{
-    body{font-size:10.5pt;padding:0}
-    .wrap{padding:0;max-width:100%}
-    section{margin-top:24px;page-break-inside:avoid}
-    .item,.case{page-break-inside:avoid}
+  b, strong { font-weight: 700; }
+  p { margin: 0 0 12px; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 0.86em; color: #374151; background: #f3f4f6; padding: 1px 5px; border-radius: 4px; }
+
+  /* 레이아웃: 1920px 기준, 본문은 읽기 좋은 폭으로 가운데 */
+  .page { max-width: 1040px; margin: 0 auto; padding: 96px 40px 120px; }
+
+  /* 헤더 */
+  .hero h1 { font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin: 0; }
+  .hero h1 .role { font-size: 24px; font-weight: 600; color: var(--muted); margin-left: 14px; letter-spacing: -0.01em; }
+  .hero .tagline { font-size: 17px; color: var(--muted); margin: 14px 0 6px; }
+  .hero-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .hero .contact { font-size: 15px; font-weight: 600; margin: 0; text-align: right; line-height: 1.7; color: var(--text); }
+  .hero .contact a { color: var(--accent); text-decoration: none; }
+  .hero .intro { margin-top: 32px; }
+
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 28px 0 0; }
+  .metric { padding: 24px 12px; text-align: center; background: #f4f5f7; border-radius: 20px; }
+  .metric .num { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; line-height: 1.3; }
+  .metric .lbl { font-size: 15px; font-weight: 500; color: #4b5563; margin-top: 4px; line-height: 1.5; }
+  .note { font-size: 14px; color: var(--muted); margin-top: 16px; }
+
+  /* 섹션 */
+  h2 { font-size: 15px; font-weight: 800; letter-spacing: 0.12em; color: var(--text); margin: 88px 0 32px; padding-bottom: 14px; border-bottom: 2px solid var(--text); }
+  h2 .ko { font-size: 14px; font-weight: 600; letter-spacing: 0; color: var(--faint); margin-left: 10px; }
+  .lead { font-size: 17px; color: #374151; margin-bottom: 8px; }
+
+  .item { padding: 40px 0; border-bottom: 1px solid var(--line); }
+  .item:last-child { border-bottom: none; }
+  h3 { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.4; margin: 0 0 6px; }
+  .meta { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+  h4 { font-size: 16px; font-weight: 700; margin: 28px 0 8px; }
+
+  ul { list-style: none; margin: 8px 0 14px; padding: 0; }
+  li { position: relative; padding-left: 20px; margin: 0 0 8px; }
+  li::before { content: ""; position: absolute; left: 4px; top: 0.82em; width: 6px; height: 1.5px; background: var(--faint); }
+  .k { color: var(--accent); font-weight: 700; }
+  /* 라벨 + 설명 목록 */
+  li.kv { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 12px 0; margin: 0; border-bottom: 1px solid #f0f1f3; }
+  li.kv:last-child { border-bottom: none; }
+  li.kv::before { display: none; }
+  li.kv .k { font-size: 15px; font-weight: 600; color: #374151; line-height: calc(var(--fs) * 1.7); }
+  /* 트러블슈팅: 라벨을 작은 뱃지로 */
+  .ts li.kv { grid-template-columns: 52px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-bottom: 1px solid #e9ecf1; }
+  .ts li.kv:last-child { border-bottom: none; padding-bottom: 0; }
+  .ts li.kv .k { justify-self: start; align-self: start; font-size: 13px; line-height: 1; padding: 6px 9px; margin-top: 4px; border-radius: 999px; background: #e8efff; color: #1d4ed8; }
+  .ts li.kv:last-child .k { background: #1d4ed8; color: #fff; }
+
+  .table-wrap { overflow-x: auto; margin: 14px 0 18px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; min-width: 560px; }
+  th, td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+  th { font-weight: 700; color: #4b5563; font-size: 13px; background: #f6f7f9; border-bottom: 1px solid var(--line-strong); }
+  tr.em td { font-weight: 700; background: #f5f9ff; }
+  .table-note { font-size: 14px; color: var(--muted); margin: -6px 0 0; }
+  .result-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0 8px; }
+  .rcard { background: #f4f5f7; border-radius: 20px; padding: 20px 16px; text-align: center; }
+  .rcard .rlbl { font-size: 14px; font-weight: 600; color: #4b5563; }
+  .rcard .rnum { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-top: 4px; white-space: nowrap; }
+  .rcard .rnum span { color: var(--faint); font-weight: 600; }
+  .rcard .rsub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+
+  .ts { background: var(--soft); border-radius: 12px; padding: 22px 26px; margin: 22px 0; }
+  .ts-title { font-weight: 700; font-size: 16px; margin: 0 0 10px; }
+  .ts ul { margin-bottom: 0; }
+  .small { font-size: 14px; color: var(--muted); margin-top: 10px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .meta-row { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin: 0 0 18px; }
+  .meta-row .meta { margin: 0; }
+  .tags span { font-size: 13px; font-weight: 500; color: var(--accent); background: #eff6ff; border-radius: 999px; padding: 3px 11px; }
+
+  /* AX 섹션 안의 구분 */
+  .group-title { display: flex; align-items: center; gap: 14px; margin: 56px 0 4px; }
+  .group-title span { font-size: 14px; font-weight: 700; color: var(--accent); background: #eff6ff; border-radius: 999px; padding: 5px 14px; white-space: nowrap; }
+  .group-title.first { margin-top: 36px; }
+  h2 + .group-title { margin-top: 0; }
+  .group-title + .item { padding-top: 24px; }
+  .group-title + .plist .prow:first-child { padding-top: 12px; }
+  h2 + .item { padding-top: 0; }
+  h2 + .stack .srow:first-child { padding-top: 0; }
+  .item:has(+ .group-title) { border-bottom: none; }
+
+  /* 기타 프로젝트 */
+  .sub-title { font-size: 15px; font-weight: 700; color: var(--muted); margin: 36px 0 4px; }
+  .sub-title:first-of-type { margin-top: 0; }
+  .prow { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .prow:last-child { border-bottom: none; }
+  .prow-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .pname { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin: 0; }
+  .pname small { font-size: 14px; font-weight: 500; color: var(--muted); margin-left: 8px; letter-spacing: 0; }
+  .pdate { font-size: 14px; font-weight: 600; color: #4b5563; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .pdesc { margin: 6px 0 0; color: #4b5563; font-size: 15px; }
+  .pdesc b { color: var(--text); font-weight: 700; }
+
+  /* 경력 */
+  .item.job { padding: 32px 0; }
+  h2 + .item.job { padding-top: 0; }
+  .item.job p:last-child { margin-bottom: 0; }
+  .job-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+  .job-name { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; margin: 0; }
+  .job-role { margin: 4px 0 0; font-size: 15px; color: var(--muted); }
+  .job-role b { color: var(--text); font-weight: 700; }
+  .job-role i { font-style: normal; color: var(--faint); margin: 0 8px; }
+  .job-period { margin: 6px 0 0; font-size: 14px; font-weight: 500; color: #4b5563; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* 기술 스택 */
+  .srow { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items: start; }
+  .srow:last-child { border-bottom: none; }
+  .slabel { font-size: 15px; font-weight: 700; padding-top: 4px; }
+  .sbadges { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sbadges span { font-size: 14px; font-weight: 500; color: var(--accent); background: #eff6ff; border-radius: 999px; padding: 4px 12px; }
+
+  /* 반응형 */
+  @media (max-width: 1023px) {
+    :root { --fs: 16px; }
+    .page { padding: 72px 32px 96px; }
+  }
+  @media (max-width: 767px) {
+    .page { padding: 48px 20px 72px; }
+    .hero h1 { font-size: 34px; }
+    .hero h1 .role { display: block; margin: 6px 0 0; font-size: 20px; }
+    .hero .tagline { font-size: 16px; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+    .metric .num { font-size: 24px; }
+    .result-cards { grid-template-columns: 1fr; }
+    h2 { margin-top: 64px; }
+    h3 { font-size: 20px; }
+    .item { padding: 32px 0; }
+    .ts { padding: 18px 18px; }
+    .hero .contact { text-align: left; }
+    li.kv { grid-template-columns: 1fr; gap: 2px; }
+    .ts li.kv { grid-template-columns: 1fr; gap: 6px; }
+    .srow { grid-template-columns: 92px minmax(0, 1fr); gap: 12px; }
+    .job-head { flex-direction: column; gap: 2px; }
+    .job-period { margin: 0; }
+  }
+
+  /* 인쇄(PDF 변환용) */
+  @media print {
+    @page { size: A4; margin: 16mm 15mm; }
+    :root { --fs: 10pt; }
+    body { line-height: 1.7; }
+    .page { padding: 0; max-width: none; }
+    .hero h1 { font-size: 24pt; }
+    .hero h1 .role { font-size: 13pt; }
+    .hero .tagline { font-size: 10.5pt; }
+    .metric .num { font-size: 15pt; }
+    .metric .lbl { font-size: 8.5pt; }
+    h2 { font-size: 11pt; margin: 28px 0 12px; break-after: avoid; }
+    h3 { font-size: 13pt; break-after: avoid; }
+    .item { padding: 18px 0; }
+    .ts { padding: 12px 14px; }
+    table { font-size: 9pt; min-width: 0; }
+    li, tr { break-inside: avoid; }
+    .ts-title { break-after: avoid; }
+    .tags span { font-size: 8pt; }
   }
 </style>
 </head>
 <body>
+<div class="page">
 
-<!-- ============ SIDE NAV ============ -->
-<nav class="side-nav">
-  <a href="#top">소개</a>
-  <a href="#skills">핵심 역량</a>
-  <a href="#experience">경력사항</a>
-  <a href="#projects">대표 프로젝트</a>
-  <a href="#trouble">문제해결</a>
-  <a href="#stack">기술 스택</a>
-  <a href="#etc">기타 활동</a>
-</nav>
+<header class="hero">
+  <div class="hero-top">
+    <h1>이제안<span class="role">AX Engineer</span></h1>
+    <p class="contact"><a href="mailto:lee10abc@naver.com">lee10abc@naver.com</a><br>010-5404-5419</p>
+  </div>
+  <p class="tagline">제약·헬스케어 백엔드 7년차 · 사내 AI 개발 도구 구축 · LLM 답변 품질 측정</p>
 
-<div class="wrap">
+  <div class="metrics">
+    <div class="metric"><div class="num">7년차</div><div class="lbl">백엔드·웹 경력</div></div>
+    <div class="metric"><div class="num">5곳</div><div class="lbl">다국적 제약사 고객사</div></div>
+    <div class="metric"><div class="num">6개</div><div class="lbl">단독·주력 프로젝트</div></div>
+    <div class="metric"><div class="num">1,015</div><div class="lbl">커밋 · 24개 저장소</div></div>
+  </div>
 
-  <!-- ============ HEADER ============ -->
-  <header id="top">
-    <h1>이제안 <span class="light">Full-stack Developer</span></h1>
-    <div class="subtitle">제약·헬스케어 플랫폼 — 서버부터 프론트, 모바일 API까지</div>
-    <div class="contact">
-      <a href="mailto:lee10abc@naver.com">lee10abc@naver.com</a>
-      <span>·</span>
-      <a href="tel:01054045419">010-5404-5419</a>
-    </div>
-    <p class="intro">
-      제약·헬스케어 도메인에서 <strong>환자·의료인(HCP) 참여 플랫폼</strong>을 서버·프론트엔드·모바일 API·배포까지 담당해 온 풀스택 개발자입니다.
-      UI 퍼블리싱·Java 개발로 커리어를 시작해, <strong>2021년 9월부터 INNOBOOST</strong>에서
-      글로벌 제약사의 디지털 서비스를 담당하며 <strong>10개 이상의 프로젝트를 개발</strong>했습니다.
-      규제·개인정보(PII/PHI)가 까다로운 환경에서 보안·인증·외부 연동을 설계했고,
-      레거시(CodeIgniter)부터 Laravel 12 + React/Inertia, Kotlin/Spring Boot 등 다양한 스택으로
-      서버·프론트엔드·모바일 API와 배포를 담당해 왔습니다.
-    </p>
-    <div class="stats">
-      <div><b>6.8년</b><span>개발 경력</span></div>
-      <div><b>20+</b><span>담당 프로젝트</span></div>
-      <div><b>5+</b><span>글로벌 제약사 클라이언트</span></div>
-    </div>
-  </header>
+  <p class="intro">제약·헬스케어 서비스의 백엔드를 개발하고 운영해 왔습니다. 개인정보 암호화, 외부 시스템 연동, 오래된 시스템의 장기 운영이 주된 업무였고, 최근 2년은 <b>회사에서 AI 개발 도구를 만들고 이를 실제 고객 프로젝트에 적용</b>하는 일을 함께 하고 있습니다.</p>
+  <p>AI가 만든 코드를 어디까지 믿을 수 있는지에 관심이 많습니다. 사내 Claude Code 플러그인에서 <b>Redmine 연동 기능(커맨드 11개)을 혼자 설계·구현</b>했고, AI가 작성한 코드를 다시 검토하는 리뷰 스킬을 처음 만들어 고객 프로젝트 5개에 적용했습니다.</p>
+  <p>개인 프로젝트로는 RAG 시스템의 답변을 원문과 직접 대조해 채점하며 개선하고 있습니다. 개선 전 30%였던 근거 뒷받침률을 <b>튜닝에 쓰지 않은 30문항 기준 80%</b>까지 올렸습니다.</p>
+  <p>UI 퍼블리싱과 Java로 시작해 2021년 9월부터 INNOBOOST에서 다국적 제약사 서비스를 맡고 있습니다. <b>CodeIgniter 3/4 + MS SQL Server 같은 오래된 환경부터 Laravel 12, Kotlin/Spring Boot 3, Python/FastAPI까지</b> 개발·운영했습니다.</p>
+  <p class="note">고객사 제품명은 비밀유지를 위해 밝히지 않았습니다. 고객사 프로젝트는 모두 INNOBOOST를 통한 수탁 개발입니다.</p>
+</header>
 
-  <!-- ============ CORE SKILLS ============ -->
-  <section id="skills">
-    <div class="sec">Core Skills <span class="ko">핵심 역량</span></div>
+<section>
+<h2>AX ENGINEERING<span class="ko">AI 엔지니어링</span></h2>
+<p class="lead">AI로 코드를 만드는 속도보다 <b>만든 코드를 어떻게 확인할지</b>가 더 어려운 문제라고 봤습니다. 회사에서는 AI 개발 도구를 만들어 실제 프로젝트에 적용했고, 개인 프로젝트에서는 LLM 답변 품질을 측정하는 방법을 다뤘습니다.</p>
 
-    <div class="cap">
-      <h3>제약·헬스케어 플랫폼 개발</h3>
-      <ul>
-        <li>환자 등록(QR·토큰)·교육 예약·콘텐츠·설문·리포트·대시보드를 여러 제약사 프로젝트 설계·구축</li>
-        <li>규제·PHI 민감 데이터의 인증·동의·감사(audit) 요구사항 대응</li>
-      </ul>
-    </div>
-    <div class="cap">
-      <h3>보안 · 인증</h3>
-      <ul>
-        <li><b>KMS 필드 단위 암호화</b> — 결정적/랜덤 IV 분리로 "암호화하되 검색 가능" 문제 해결</li>
-        <li>이메일 2FA, 계정 잠금, 비밀번호 순환, <b>3단계 RBAC + 역할별 PII 마스킹</b></li>
-        <li>NICE 본인인증, AES/Hashids URL 암호화, AWS Secrets Manager</li>
-      </ul>
-    </div>
-    <div class="cap">
-      <h3>메시징 · 외부 연동</h3>
-      <ul>
-        <li>카카오 알림톡/친구톡/브랜드톡/OAuth/싱크/<b>톡캘린더</b></li>
-        <li>NHN Cloud SMS·이메일(발송·오픈·클릭 웹훅 트래킹), Mailgun</li>
-        <li>Salesforce·IQVIA 데이터 동기화, FCM 푸시, Okta SSO 연동</li>
-      </ul>
-    </div>
-    <div class="cap">
-      <h3>풀스택 · DevOps</h3>
-      <ul>
-        <li><b>Backend</b> Laravel 11/12, CodeIgniter 3/4, Kotlin+Spring Boot 3</li>
-        <li><b>Frontend</b> React 19 + TypeScript + Inertia.js, Blade, Tailwind</li>
-        <li><b>CI/CD</b> GitHub Actions 배포 파이프라인 구축 — ECS/Fargate · EC2(SSH) · SSM 기반 SSH-less 자동 배포(OIDC+S3)</li>
-      </ul>
-    </div>
-  </section>
+<div class="group-title first"><span>회사 업무 · INNOBOOST</span></div>
 
-  <!-- ============ EXPERIENCE ============ -->
-  <section id="experience">
-    <div class="sec">Experience <span class="ko">경력사항</span></div>
+<article class="item">
+  <h3>사내 AI 개발 플러그인 — Redmine 연동 기능 설계·구현</h3>
+  <p>Figma 화면 → 코드 변환, 기획서 → 테스트 우선 개발, 이슈 관리를 묶은 사내 Claude Code 플러그인(스킬 45개, 약 31,600줄)이 있습니다. 이 중 <b>Redmine 연동 부분을 혼자 맡았습니다.</b> 커맨드 11개와 공통 규칙 문서 2개(1,120줄)를 설계부터 구현까지 직접 작성했고, 버전 0.15.0부터 0.17.0까지 릴리스 10번도 직접 진행했습니다.</p>
+  <ul>
+    <li class="kv"><span class="k">작업 흐름</span><span class="v">이슈 변경을 <code>계획 작성 → 사용자 확인 → 적용</code> 3단계로 나누고, 현재 상태와 바꾸려는 상태를 따로 기록했습니다. 같은 명령을 다시 실행해도 결과가 달라지지 않게 했고, 일부만 성공하면 성공으로 표시하지 않고 확인 단계에 남깁니다. 이슈마다 변경 내용을 보여주고 승인을 받습니다.</span></li>
+    <li class="kv"><span class="k">AI 자동 실행 제한</span><span class="v">데이터를 바꾸는 커맨드 4개는 AI가 스스로 판단해 실행하지 못하게 막고, 사용자가 직접 호출할 때만 동작하게 했습니다. 45개 스킬 중 이렇게 막아 둔 것은 이 4개입니다.</span></li>
+    <li class="kv"><span class="k">API 예외 처리</span><span class="v">수정 요청 후 다시 조회해 실제로 반영됐는지 확인합니다(허용되지 않는 상태 변경에도 성공 응답이 오는 경우가 있어서). 바뀌는 내용이 없는 요청은 보내지 않고, 삭제 기능은 두지 않았으며, 목록은 마지막 페이지까지 모두 조회합니다.</span></li>
+    <li class="kv"><span class="k">사용 현황</span><span class="v">사내 이슈 트래커의 실제 이슈 처리에 사용하고 있고, 동료가 작성한 이슈도 이 기능으로 처리했습니다.</span></li>
+  </ul>
+</article>
 
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">INNOBOOST <span class="sub">개발자</span></div>
-        <div class="item-date">2021.09 ~ 현재</div>
-      </div>
-      <div class="item-org">헬스케어 디지털 에이전시 · 제약사 환자·의료인 대상 웹/모바일 서비스</div>
-      <div class="item-desc">글로벌 제약사의 디지털 서비스를 서버·프론트·모바일 API·배포까지 담당. 제약 환자/HCP 플랫폼 프로젝트를 개발. <b>(상세: 아래 「대표 프로젝트」)</b></div>
-    </div>
+<article class="item">
+  <h3>AI가 작성한 코드를 다시 검토하는 리뷰 스킬</h3>
+  <p>AI가 기능 해석, 테스트, 코드를 모두 작성하면 테스트가 통과해도 <b>스스로 맞다고 확인한 것</b>에 가깝습니다. 그래서 완성된 코드를 별도로 다시 읽고 문제를 찾는 리뷰 스킬을 만들었습니다.</p>
+  <ul>
+    <li class="kv"><span class="k">검토 방식</span><span class="v">테스트는 통과하지만 동작이 틀린 경우, 테스트가 부족한 경우, 구조가 잘못된 경우를 찾는 데 집중합니다. 테스트 이름이 아니라 내용을 읽고, <b>해당 로직을 지우면 테스트가 실제로 실패하는지</b>까지 확인합니다.</span></li>
+    <li class="kv"><span class="k">기록 방식</span><span class="v">문제마다 번호·심각도·파일 위치(<code>file:line</code>)를 기록하고, 다시 실행해도 같은 결과가 나오게 했습니다. 사용자와 합의하기 전에는 코드를 고치지 않습니다.</span></li>
+    <li class="kv"><span class="k">결과</span><span class="v">처음 설계해 만든 뒤 팀과 함께 보완해 왔고, 고객 프로젝트 5개 모두에 적용했습니다. 리뷰를 마친 작업 단위는 88건이고, 한 프로젝트에서는 결함 <b>131건을 기록해 72건을 해결</b>했습니다.</span></li>
+  </ul>
+</article>
 
-    <hr class="soft">
+<article class="item">
+  <h3>고객 프로젝트 적용 — 노바티스 환자 CRM 플랫폼</h3>
+  <p>기획서 분석 → 개발 계획 → 테스트 우선 개발 → QA → 코드 재검토 순서를 제가 맡은 프로젝트에 그대로 적용했습니다.</p>
+  <div class="table-wrap"><table>
+    <tr><th>구분</th><th>커밋</th><th>테스트 코드 : 앱 코드</th><th>테스트 규모</th><th>코드 재검토</th></tr>
+    <tr><td>관리자 웹</td><td>58/58 (단독)</td><td><b>18,013 : 15,931줄</b></td><td>테스트 854개 / 검증 5,106개</td><td>19회</td></tr>
+    <tr><td>환자용 앱</td><td>58/58 (단독)</td><td><b>18,982 : 16,434줄</b></td><td>테스트 파일 89개</td><td>23회</td></tr>
+  </table></div>
+</article>
 
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">주식회사 다름 <span class="sub">개발팀 · 주임</span></div>
-        <div class="item-date">2019.12 ~ 2021.08</div>
-      </div>
-      <div class="item-desc">프론트엔드 개발자로 입사해 <b>백엔드 개발자로 역할을 확장</b>.</div>
+<article class="item">
+  <h3>Figma 기획서 분석을 위한 MCP 연동</h3>
+  <p>기획서를 Figma로 받는데, AI가 이 기획서를 직접 읽고 분석해 Claude로 개발을 진행할 수 있도록 <b>Figma와 Claude를 MCP로 연결</b>했습니다. Figma 설정 파일을 만들고 새 플러그인을 등록해 MCP를 구성했습니다.</p>
+</article>
 
-      <div class="phase-label">웹·백엔드 개발 · <span class="role">Java · 전자정부 표준프레임워크</span> <span class="d">2020.11 ~ 2021.08</span></div>
-      <ul class="plist">
-        <li><span>센터필드 홈페이지 구축 <span class="pt">Linux · Java · Oracle</span></span><span class="d">2021.04 ~ 2021.08</span></li>
-        <li><span>홈앤톤즈 쇼핑몰 리뉴얼 및 관리자 연동 <span class="pt">Linux · Java · MariaDB</span></span><span class="d">2021.02 ~ 2021.04</span></li>
-        <li><span>ABL생명 챗봇 구축</span><span class="d">2020.11 ~ 2021.01</span></li>
-      </ul>
+<article class="item">
+  <h3>Figma → 코드 변환 누락 자동 검사</h3>
+  <p>Figma 화면을 코드로 바꿀 때 <b>빠진 요소가 없는지 AI가 판단하던 단계를 스크립트로 바꿨습니다.</b> 디자인의 요소 목록과 실제 사용된 요소를 비교해 의미 있는 요소가 빠지면 파이프라인을 실패시키고, 단순히 묶음 역할을 하는 요소는 보고만 합니다. 153줄을 혼자 작성했고 전용 테스트는 8개입니다. 검사 범위를 화면 단위로 나눠, 기존에 여러 화면의 결과가 섞이던 문제도 함께 해결했습니다.</p>
+</article>
 
-      <div class="phase-label">웹 퍼블리싱 · <span class="role">HTML5 · CSS3 · JavaScript · jQuery</span> <span class="d">2019.12 ~ 2020.10</span></div>
-      <ul class="plist">
-        <li><span>스타필드 안성점 신규 구축</span><span class="d">2020.07 ~ 2020.10</span></li>
-        <li><span>저출산고령사회위원회 홈페이지 구축</span><span class="d">2020.05 ~ 2020.07</span></li>
-        <li><span>버즈빌 홈페이지 구축</span><span class="d">2020.03 ~ 2020.05</span></li>
-        <li><span>라온시큐어 홈페이지 구축</span><span class="d">2019.12 ~ 2020.02</span></li>
-      </ul>
-    </div>
-  </section>
+<div class="group-title"><span>개인 프로젝트</span></div>
 
-  <!-- ============ PROJECTS ============ -->
-  <section id="projects">
-    <div class="sec">Projects <span class="ko">대표 프로젝트</span></div>
+<article class="item">
+  <h3>한국사 기출 RAG — 답변 품질 측정과 개선</h3>
+  <div class="meta-row"><p class="meta">혼자 진행 · 2026.10 ~ 진행 중</p><div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL + pgvector</span><span>Gemini</span><span>Ollama (bge-m3)</span><span>BM25</span><span>OCR</span><span>pytest · 테스트 1,308개</span></div></div>
+  <p>RAG로 기출문제를 푸는 시스템입니다. 정답률보다 <b>"답의 근거를 실제 자료에서 댈 수 있는가"</b>를 기준으로 삼았고, 제가 직접 원문을 읽고 채점한 결과로 개선 효과를 확인했습니다.</p>
 
-    <!-- 1 Dr.Peach -->
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">Dr.Peach 헬스케어 커뮤니티 플랫폼 <span class="sub">레거시 → 모던 재아키텍처 · 3계층 풀스택</span></div>
-      </div>
-      <div class="item-desc">병원 정보·커뮤니티·헬스 콘텐츠/퀴즈·프로모션 앱 플랫폼. 분리돼 있던 <b>레거시 관리자(Laravel 11) + 모바일 API(Kotlin/Spring)를 Laravel 12 + Inertia/React 모놀리스로 재통합</b>하는 작업을 주도.</div>
-      <ul>
-        <li><span class="cat">재아키텍처</span> Laravel 12 + Inertia + React 19 + TypeScript 단일 코드베이스로 재구축, 약 60개 백로그 유닛 구현</li>
-        <li><span class="cat">프론트</span> 콘텐츠 업로드·퀴즈 드래그앤드롭 정렬·QR 다운로드·대시보드 UI, GA gtag 연동</li>
-        <li><span class="cat">백엔드</span> 계정·커뮤니티·댓글 신고 모더레이션 스위트, 예약 발행, S3 미디어 파이프라인</li>
-        <li><span class="cat">모바일 API</span> Kotlin/Spring Boot 3 + jOOQ 서버에 콘텐츠·검색·게시글 API, <b>대댓글 FCM 푸시</b>, JWT 리프레시 토큰, 서명 썸네일 만료 처리</li>
-        <li><span class="cat">CI/CD</span> GitHub Actions 배포 워크플로우(test/prod) 구성, Docker 기반 배포 자동화</li>
-      </ul>
-      <div class="tags"><span class="t">Laravel 12</span><span class="t">Inertia.js</span><span class="t">React 19</span><span class="t">TypeScript</span><span class="t">Tailwind</span><span class="t">Kotlin</span><span class="t">Spring Boot 3</span><span class="t">jOOQ</span><span class="t">MariaDB</span><span class="t">Redis</span><span class="t">S3</span><span class="t">Firebase</span><span class="t">GitHub Actions</span><span class="t">재아키텍처</span></div>
-    </div>
+  <h4>데이터 준비</h4>
+  <ul>
+    <li class="kv"><span class="k">문서 추출·OCR</span><span class="v">기출 PDF 4회분 200문항을 AI 없이 글자 위치 정보로 추출하고, 글자 정보가 없는 스캔본은 macOS Vision OCR로 처리했습니다. 기존에 교정해 둔 1회분과 비교해 <b>차이 0건</b>이었고, 항목과 사건의 짝이 깨져 있던 연표 문항은 위치 정보로 구조를 복원했습니다.</span></li>
+  </ul>
 
-    <hr class="soft">
+  <h4>측정 방법</h4>
+  <ul>
+    <li class="kv"><span class="k">직접 채점</span><span class="v">인용한 자료가 답을 뒷받침하는지 뒷받침함 / 일부만 / 아님 / 인용 없음으로 판정하고, 기준은 문서로 정리해 애매한 경우가 나올 때마다 보완했습니다.</span></li>
+    <li class="kv"><span class="k">우연 여부 확인</span><span class="v">같은 설정으로 한 번 더 실행해 보니, 해설 문장과 일부 인용(7/30)은 바뀌었지만 답과 근거 판단은 그대로였습니다. 그래서 해설이나 인용만 바뀐 경우는 개선으로 세지 않았습니다.</span></li>
+    <li class="kv"><span class="k">새 문항으로 확인</span><span class="v">튜닝에 쓰지 않은 30문항을 뽑아 설정을 바꾸지 않고 한 번 실행했습니다.</span></li>
+    <li class="kv"><span class="k">사람·AI 판정 비교</span><span class="v">같은 30문항을 모델도 1차로 판정하게 하고, 제 판정과 문항별로 비교했습니다. <b>일치율 86.7%(26/30)</b>였고, 다른 4문항은 AI가 더 엄격한 경우 2건, 더 느슨한 경우 2건으로 한쪽으로 치우치지 않았습니다. 해설을 쓴 모델이 스스로 채점한 결과라 성능 수치로는 쓰지 않고, 제가 검토할 순서를 정하는 데 씁니다.</span></li>
+    <li class="kv"><span class="k">정답 유출 방지</span><span class="v">기존 시스템이 프롬프트에 정답을 넣은 채 일치율 100%를 내던 것을 발견해, 정답이 섞이면 실행이 막히도록 고쳤습니다.</span></li>
+  </ul>
 
-    <!-- 2 Kisqali -->
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">Novartis Kisqali 환자 CRM 플랫폼</div>
-      </div>
-      <div class="item-desc">유방암 치료제 '키스칼리' 환자 CRM. <b>관리자 PC 백오피스</b>와 <b>모바일 환자 채널</b>을 가드로 분리한 이중 포털. 초기 아키텍처 설계부터 전담 개발하여 33개 단위 기능을 구현했으며 현재 개발 중.</div>
-      <ul>
-        <li><span class="cat">개발 프로세스</span> <b>사내 AI 에이전트(agent-team)를 개발 워크플로우에 적용</b> — 기획서 분석 → 개발 계획(dev-plan) 수립 → TDD 개발 → 교차 검증 코드 리뷰 단계로 진행</li>
-        <li><span class="cat">보안</span> KMS 필드 암호화(카카오 식별자=결정적, 그 외=랜덤 IV), 이메일 2FA·계정 잠금·비밀번호 순환, <b>3단계 RBAC + 역할별 PII 마스킹</b></li>
-        <li><span class="cat">기능</span> QR/토큰 환자 등록(1회용 원자적 소비), 콘텐츠 4종 관리, 카카오 비즈메시지 대량 발송(실시간 미리보기·야간 차단·예약), <b>KPI 대시보드</b></li>
-        <li><span class="cat">연동</span> 카카오 비즈메시지(NHN Cloud), 카카오 OAuth 로그인 + 싱크 채널추가 감지</li>
-        <li><span class="cat">운영</span> 관리자 감사 로그(비동기·시크릿 마스킹), 클릭 트래킹 리다이렉트(오픈 리다이렉트 방어)</li>
-        <li><span class="cat">CI/CD</span> <b>SSH 없는 자동 배포 파이프라인 구축(dev/prod 분리)</b> — GitHub Actions(AWS OIDC 키리스 인증)로 Docker 이미지를 S3에 업로드하고, <b>AWS SSM으로 구성된 서버가 이를 받아 배포</b>. 소스는 Git으로 형상관리</li>
-      </ul>
-      <div class="tags"><span class="t">AI 워크플로우</span><span class="t">Laravel 12</span><span class="t">PHP 8.3</span><span class="t">Blade</span><span class="t">MariaDB</span><span class="t">Redis</span><span class="t">S3</span><span class="t">AWS KMS</span><span class="t">AWS SSM</span><span class="t">OIDC</span><span class="t">Pest</span><span class="t">Playwright</span><span class="t">RBAC</span><span class="t">카카오연동</span><span class="t">CI/CD</span></div>
-    </div>
+  <h4>개선 과정 — 한 번에 하나씩 바꾸고, 바뀐 문항만 다시 채점</h4>
+  <div class="table-wrap"><table>
+    <tr><th style="width:14%">단계</th><th style="width:38%">바꾼 것</th><th style="width:22%">근거 뒷받침률(직접 채점)</th><th>결과</th></tr>
+    <tr><td>v1</td><td>개선 전 기준</td><td>30.0% (9/30)</td><td>—</td></tr>
+    <tr><td>v2</td><td>입력 데이터 오류 수정(연표 구조, 세트 문항 자료)</td><td>30.0% (9/30)</td><td>정답 2건 바로잡음</td></tr>
+    <tr><td>v3</td><td>시대 필터 조정</td><td>—</td><td><b>제외</b> (사전 확인에서 오히려 나빠짐)</td></tr>
+    <tr><td>v4</td><td>대상을 먼저 찾고 다시 검색</td><td>60.0% (18/30)</td><td>적용</td></tr>
+    <tr><td>v5</td><td>고른 답으로 한 번 더 검색</td><td>93.3% (28/30)</td><td>적용</td></tr>
+    <tr class="em"><td>최종 확인</td><td>v5 설정 그대로 · 처음 보는 30문항</td><td>80.0% (24/30)</td><td>—</td></tr>
+  </table></div>
+  <p class="table-note">세 번 모두 근거 판정이 나빠진 문항은 없었습니다. 튜닝 문항(93.3%)은 그 문항에 맞춰진 영향이 있어, 처음 보는 문항의 80.0%를 실제 성능으로 봅니다.</p>
 
-    <hr class="soft">
+  <div class="result-cards">
+    <div class="rcard"><div class="rlbl">근거 뒷받침률</div><div class="rnum">30% <span>→</span> 80%</div><div class="rsub">24/30 · 직접 채점</div></div>
+    <div class="rcard"><div class="rlbl">정답률</div><div class="rnum">93% <span>→</span> 100%</div><div class="rsub">30/30</div></div>
+    <div class="rcard"><div class="rlbl">"근거 충분" 판단 정확도</div><div class="rnum">60% <span>→</span> 83%</div><div class="rsub">24/29</div></div>
+  </div>
+  <p class="table-note">개선 전은 기존 30문항, 개선 후는 튜닝에 쓰지 않은 30문항 기준입니다.</p>
 
-    <!-- 3 Viatris -->
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">Viatris One App — 제약 HCP 참여 플랫폼</div>
-      </div>
-      <div class="item-desc">의료인(HCP) 대상 심포지엄·캠페인·문헌·콘텐츠 참여 및 유저 관리 플랫폼. <b>관리자 콘솔을 약 3년간 개발 및 유지보수</b>하고 API 통계 로직을 개선.</div>
-      <ul>
-        <li><span class="cat">대시보드</span> ERAS 분석 대시보드 end-to-end 구축 및 리팩터링</li>
-        <li><span class="cat">데이터 연동</span> Salesforce HCP/타겟 스케줄러 동기화, IQVIA·OneData 연동, SOV 통계 다운로드 및 정합성 개선</li>
-        <li><span class="cat">기능</span> RTE·M2M Link·통합검색 태그·자동메일 등 다수 모듈, Excel 다운로드, KMS/PBKDF2 컬럼 암호화</li>
-        <li><span class="cat">인프라</span> FCM·Okta SSO·S3+Azure Blob·Mailgun 연동</li>
-      </ul>
-      <div class="tags"><span class="t">CodeIgniter 4</span><span class="t">PHP</span><span class="t">MS SQL Server</span><span class="t">AWS S3</span><span class="t">AWS KMS</span><span class="t">Azure Storage</span><span class="t">Salesforce API</span><span class="t">ERAS 대시보드</span><span class="t">장기운영</span></div>
-    </div>
+  <ul>
+    <li class="kv"><span class="k">남은 문제</span><span class="v">근거가 일부만 있는데도 모델이 "충분"이라고 답한 경우가 <b>5건</b> 남았습니다. 다음 단계는 정답 보기의 내용이 원문에 모두 있을 때만 "충분"으로 보도록 기준을 엄격하게 하는 것입니다.</span></li>
+  </ul>
 
-    <hr class="soft">
+  <div class="ts">
+    <p class="ts-title">트러블슈팅 1 — 자동 지표 98%, 직접 확인 30%</p>
+    <ul>
+      <li class="kv"><span class="k">문제</span><span class="v">시스템은 "근거로 뒷받침됨 98%"를 보고했는데, 원문과 직접 대조해 보니 <b>정답의 근거가 실제로 있는 문항은 30%(9/30)</b>였습니다.</span></li>
+      <li class="kv"><span class="k">원인</span><span class="v">자동 지표는 <b>인용한 문서가 검색 결과 안에 있는지만</b> 확인하고 있었습니다. 없는 문서를 지어내는 것은 잡지만, 그 문서에 정답 근거가 들어 있는지는 보지 않았습니다. 정답률도 기준으로 쓰기 어려웠습니다. 검색 없이 푼 경우 99.0%(198/200), 검색 자료를 준 경우 98.5%(197/200)로, 모델이 이미 알고 있는 지식으로 맞히고 있었습니다.</span></li>
+      <li class="kv"><span class="k">해결</span><span class="v">기준을 근거 뒷받침률로 바꾸고, 원문과 대조해 채점하는 기준표·채점 시트·재채점 절차를 만들었습니다. 자동 판정은 참고용으로만 남겼습니다.</span></li>
+      <li class="kv"><span class="k">결과</span><span class="v">30%라는 출발점이 정해져 이후 개선 효과를 비교할 수 있게 됐고, 세 번의 개선 후 <b>처음 보는 30문항에서 80.0%</b>가 됐습니다. 정답률 93%만 봤다면 드러나지 않았을 문제입니다.</span></li>
+    </ul>
+  </div>
 
-    <!-- 4 Novo OnAir -->
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">Novo On:Air — 임상시험 관리 플랫폼</div>
-      </div>
-      <div class="item-desc">임상시험 관리 플랫폼. 초기 아키텍처 셋업부터 배포</div>
-      <ul>
-        <li>임상시험/일정/회원/관리자 관리, <b>관리자·마스터 이중 권한 체계</b></li>
-        <li>설문 + 통계 + Excel 다운로드, 콘텐츠·공지·초대, 관리자 추적(audit) 로그</li>
-        <li>NHN Cloud 카카오/SMS/이메일 메시징, AWS KMS 암호화</li>
-      </ul>
-      <div class="tags"><span class="t">Laravel 11</span><span class="t">PHP 8.2</span><span class="t">MySQL</span><span class="t">Redis</span><span class="t">Docker</span><span class="t">Supervisor</span><span class="t">Pest</span><span class="t">임상시험</span><span class="t">권한체계</span><span class="t">NHN메시징</span></div>
-    </div>
+  <div class="ts">
+    <p class="ts-title">트러블슈팅 2 — "자료가 부족하다"는 판단이 틀렸던 경우</p>
+    <ul>
+      <li class="kv"><span class="k">문제</span><span class="v">두 번째 개선 후 남은 12문항은 처음에 <b>"DB에 자료가 없어서"</b>라고 판단했고, 자료를 더 모으는 것을 다음 작업으로 생각했습니다.</span></li>
+      <li class="kv"><span class="k">원인</span><span class="v">자료를 추가하기 전에 필요한 용어 14개를 DB에서 직접 찾아보니 모두 있었습니다. 문제는 검색어였습니다. 문제가 묻는 대상으로만 검색했는데, <b>정답을 가르는 단서는 대부분 보기 문장에 있었고</b>(12문항 중 10문항) 그 단어가 검색어에 들어간 적이 없었습니다.</span></li>
+      <li class="kv"><span class="k">해결</span><span class="v">모델이 답을 고른 뒤 <b>"대상 + 고른 보기 문장"으로 한 번 더 검색</b>해 근거를 보충하는 단계를 넣었습니다. 틀린 보기에 끌려가지 않도록 고른 보기 하나만 검색했고, 고유명사는 벡터 검색보다 키워드 검색(BM25)이 잘 찾아서(한 사례에서 4위 vs 30위) BM25를 썼습니다. "옳지 않은 것" 유형은 문장의 실제 주어를 먼저 뽑아 검색어에 넣었습니다.</span></li>
+      <li class="kv"><span class="k">결과</span><span class="v">근거 뒷받침률 60.0% → 93.3%(튜닝 문항), <b>처음 보는 30문항 80.0%</b>. 자료는 한 건도 추가하지 않았습니다.</span></li>
+    </ul>
+  </div>
 
-    <hr class="soft">
+</article>
+</section>
 
-    <!-- 5 AstraZeneca -->
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">AstraZeneca 천식 환자지원 플랫폼</div>
-      </div>
-      <div class="item-desc">천식 환자 대상 교육·지원 플랫폼. 초기 서버 구축부터 2년 이상 기능·컴플라이언스 유지보수.</div>
-      <ul>
-        <li><b>카카오 톡캘린더 연동</b>, cron 기반 알림톡 리마인더(교육 T-15분 환자·간호사 발송)</li>
-        <li>자동/정기 메시지 엔진, 천식환자수첩, 문진·약국정보</li>
-        <li>개인정보처리방침 컴플라이언스 지속 대응, 친구톡 → 브랜드톡 채널 마이그레이션</li>
-      </ul>
-      <div class="tags"><span class="t">CodeIgniter 4</span><span class="t">PHP 8</span><span class="t">MySQL</span><span class="t">AWS S3</span><span class="t">카카오 API</span><span class="t">톡캘린더</span><span class="t">스케줄러</span><span class="t">장기운영</span></div>
-    </div>
+<section>
+<h2>PROJECTS<span class="ko">대표 프로젝트</span></h2>
 
-    <hr class="soft">
+<article class="item">
+  <h3>노바티스 환자 CRM 플랫폼</h3>
+  <div class="meta-row"><p class="meta">단독 개발 · 2026.07 ~ 진행 중</p><div class="tags"><span>Laravel 12</span><span>PHP 8.3</span><span>MariaDB</span><span>AWS KMS/SSM</span><span>OIDC</span><span>Pest</span><span>Playwright</span><span>RBAC</span><span>카카오 연동</span></div></div>
+  <p><b>설계부터 배포까지 혼자 개발 · 커밋 58/58</b> — 항암제를 처방받은 환자를 위한 CRM입니다. 관리자 웹과 환자용 모바일 앱을 인증 단계부터 분리한 구조로 처음부터 만들었습니다.</p>
+  <ul>
+    <li class="kv"><span class="k">AI 도구 적용</span><span class="v">사내 AI 개발 플러그인으로 개발했습니다. 테스트 규모와 재검토 횟수는 위 AX 섹션에 정리했습니다.</span></li>
+    <li class="kv"><span class="k">보안</span><span class="v">AWS KMS로 개인정보 필드 암호화, 관리자 2단계 인증·계정 잠금·비밀번호 주기 변경, <b>권한 3단계와 권한별 개인정보 마스킹</b>(목록·상세·엑셀 모두)</span></li>
+    <li class="kv"><span class="k">기능·연동</span><span class="v">QR/토큰 환자 등록(한 번만 쓸 수 있게 처리), 콘텐츠 4종 관리, 카카오 비즈메시지 대량 발송(야간 발송 차단·예약), 카카오 로그인·싱크, KPI 대시보드</span></li>
+    <li class="kv"><span class="k">배포</span><span class="v">GitHub Actions가 키 없이 AWS에 인증(OIDC)해 Docker 이미지를 S3에 올리면, 서버가 AWS SSM으로 받아 자동 배포합니다. <b>서버 SSH 접속과 장기 보관 키를 없앴습니다.</b></span></li>
+  </ul>
+  <div class="ts">
+    <p class="ts-title">트러블슈팅 — 암호화하면서도 검색이 되는 개인정보 저장</p>
+    <ul>
+      <li class="kv"><span class="k">문제</span><span class="v">환자 개인정보를 KMS로 필드별 암호화한 직후, 소셜 로그인 식별자로 회원을 찾고 중복을 확인하는 기능이 모두 동작하지 않았습니다.</span></li>
+      <li class="kv"><span class="k">원인</span><span class="v">매번 다른 결과가 나오는 암호화(랜덤 IV)는 같은 값도 저장할 때마다 암호문이 달라져, DB 인덱스와 유니크 제약을 쓸 수 없습니다. 필드 암호화라는 규제 요구와 조회·중복 확인이라는 기능 요구가 저장 방식에서 부딪힌 것입니다.</span></li>
+      <li class="kv"><span class="k">해결</span><span class="v">필드를 용도별로 나눠 암호화 방식을 달리했습니다. 검색에 쓰는 값은 <b>같은 값이면 같은 결과가 나오는 방식(결정적 암호화)</b>으로 저장해 인덱스와 유니크 제약을 유지하고, 나머지 민감정보는 랜덤 IV로 저장했습니다. 암호화된 속성은 API 응답에서 빠지도록 했습니다.</span></li>
+      <li class="kv"><span class="k">결과</span><span class="v">모든 개인정보 필드를 암호화한 상태에서 조회와 중복 확인이 정상 동작했고, 이후 사내 다른 프로젝트에서도 같은 방식을 썼습니다.</span></li>
+    </ul>
+  </div>
+</article>
 
-    <!-- 6 Novo RBU/OBU -->
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">노보노디스크 환자지원 프로그램 (RBU / OBU)</div>
-      </div>
-      <div class="item-desc">소그로야(성장호르몬)·핏케어 등 제품별 환자지원 웹서비스를 CodeIgniter 3 MVC로 개발·운영.</div>
-      <ul>
-        <li><b>NICE 통합 본인인증</b> 연동, 노리터 등 외부 API 개발</li>
-        <li>1:1/단체 교육 예약 로직, 알림톡·친구톡 발송 조건, 회원가입/탈퇴, 콘텐츠·FAQ</li>
-        <li><span class="cat">CI/CD</span> <b>GitHub Actions → AWS ECS/Fargate 배포 파이프라인 구축</b>(task-definition 기반), Docker 이미지 빌드, AES 컬럼 암호화</li>
-        <li>OBU: 공통 프레임워크 재사용 별도 제품 사이트 구축, <b>AJAX 동시성(race condition) 버그 수정</b></li>
-      </ul>
-      <div class="tags"><span class="t">CodeIgniter 3</span><span class="t">PHP 7.4</span><span class="t">MySQL</span><span class="t">GitHub Actions</span><span class="t">AWS ECS/Fargate</span><span class="t">Docker</span><span class="t">NICE 본인인증</span><span class="t">카카오 API</span><span class="t">알림톡</span></div>
-    </div>
+<article class="item">
+  <h3>비아트리스 HCP 참여 플랫폼</h3>
+  <div class="meta-row"><p class="meta">주력 프로젝트 · 2023.08 ~ 진행 중</p><div class="tags"><span>CodeIgniter 4</span><span>MS SQL Server</span><span>Salesforce API</span><span>Okta SSO</span><span>Azure Storage</span><span>분석 대시보드</span><span>장기 운영</span></div></div>
+  <p><b>관리자 웹 메인 개발 · 커밋 479/541 (88.5%)</b> — 의료인 대상 심포지엄·캠페인·문헌 서비스입니다. 관리자 웹을 3년 넘게 맡아 개발하고 있고, 운영 중에 DB를 MS SQL Server로 옮겼습니다.</p>
+  <ul>
+    <li class="kv"><span class="k">DB 이전</span><span class="v">MySQL → MS SQL Server 이전 주도 — <b>251개 파일 / +17,398줄, 인덱스 171개 추가</b>. 암호화, PK 생성 방식, 한글 정렬(콜레이션), 날짜 정밀도를 새 DB에 맞게 다시 설계</span></li>
+    <li class="kv"><span class="k">데이터 연동·분석</span><span class="v">Salesforce 의료인·타겟 데이터 정기 동기화, 외부 처방 데이터 연동, SOV 통계 집계·다운로드, 영업활동 분석 대시보드 개발</span></li>
+    <li class="kv"><span class="k">보안·인프라</span><span class="v">SQL Server 대칭키·인증서 기반 컬럼 암호화(암호화된 컬럼의 정렬·조인 방식 포함), Okta SSO(OAuth2 + PKCE), FCM, S3 + Azure Blob</span></li>
+  </ul>
+  <div class="ts">
+    <p class="ts-title">트러블슈팅 — SOV 통계 수치 오류와 쿼리 999회 → 2회</p>
+    <ul>
+      <li class="kv"><span class="k">문제</span><span class="v">브랜드별 SOV(점유율) 비율이 실제와 달랐고, 엑셀 다운로드는 타임아웃으로 끝나지 않았습니다. <b>숫자를 믿을 수 없는 상태</b>였습니다.</span></li>
+      <li class="kv"><span class="k">원인</span><span class="v">세 가지가 겹쳐 있었습니다. ① 비율의 분모를 만들 때 집계 기준이 다른 두 테이블(특정 활동 유형만 / 전체)을 더해 써서, 브랜드마다 분모가 다르게 부풀었습니다. ② 브랜드A / 브랜드A PLUS / 브랜드APLUS가 함께 있는데 <code>LIKE '%브랜드A%'</code> 하나로 걸러, 다른 브랜드까지 같이 집계됐습니다. ③ 지역(territory) 111개 × 브랜드 8개 반복문 안에서 매번 쿼리를 실행해 총 999번 조회했고, 앞에 %가 붙은 LIKE라 인덱스를 쓰지 못해 매번 전체를 읽었습니다.</span></li>
+      <li class="kv"><span class="k">해결</span><span class="v">(1) 분모 기준을 하나로 통일하고, 왜 더하면 안 되는지 주석으로 남겼습니다. (2) 제외 조건을 추가해 브랜드를 구분하고 같은 패턴 8곳에 적용했습니다. (3) 두 단계로 미리 집계했습니다. <code>SUM(CASE WHEN ...)</code> 집계에 <code>GROUP BY territory</code>를 더해 112번까지 줄이고, 다음으로 지역 단위까지 쿼리 안에서 처리한 뒤 반복문은 메모리에서 값만 맞추게 해 최종 2번으로 줄였습니다.</span></li>
+      <li class="kv"><span class="k">결과</span><span class="v">브랜드별 비율이 맞게 나오고, <b>쿼리 999 → 2회(99.8% 감소)</b>, 엑셀 다운로드 타임아웃이 해결됐습니다.</span></li>
+    </ul>
+ </div>
+</article>
 
-    <hr class="soft">
+<article class="item">
+  <h3>Dr.Peach 헬스케어 커뮤니티 플랫폼</h3>
+  <div class="meta-row"><p class="meta">자사 서비스 · 2025.05 ~ 진행 중</p><div class="tags"><span>Laravel 11/12</span><span>Inertia.js</span><span>React 19</span><span>TypeScript</span><span>Kotlin</span><span>Spring Boot 3</span><span>jOOQ</span><span>FCM</span><span>재구축</span></div></div>
+  <p><b>기존 관리자 단독 개발(커밋 38/39) → 재구축 프로젝트 관리자 파트 담당</b> — 병원 정보·커뮤니티·건강 콘텐츠·퀴즈를 제공하는 앱입니다. 기존 관리자(Laravel 11), 모바일 API(Kotlin/Spring), 새로 합친 서비스(Laravel 12) 세 코드베이스를 모두 작업했습니다.</p>
+  <ul>
+    <li class="kv"><span class="k">재구축</span><span class="v">따로 있던 관리자와 모바일 API를 Laravel 12 + Inertia + React 19 + TypeScript 하나로 합치는 프로젝트에서 관리자 파트 담당</span></li>
+    <li class="kv"><span class="k">시간대 문제 해결</span><span class="v">기존 DB는 시간을 한국 시간 문자열로 저장하는데 앱은 UTC 기준이라 모든 시간이 9시간씩 어긋났습니다. 저장·조회·응답 변환을 한곳에서 처리하는 공통 trait을 만들어 모델 약 20개에 적용했습니다.</span></li>
+    <li class="kv"><span class="k">모바일 API</span><span class="v">Kotlin/Spring Boot 3 + jOOQ 서버에 콘텐츠·검색 API, 대댓글 FCM 푸시, 토큰 만료·재발급, S3 서명 URL 만료 처리 개발</span></li>
+  </ul>
+  <div class="ts">
+    <p class="ts-title">트러블슈팅 — 푸시 알림이 안 가거나 여러 번 가는 문제</p>
+    <ul>
+      <li class="kv"><span class="k">문제</span><span class="v">반대되는 두 증상이 함께 있었습니다. ① 비공개 게시글을 공개로 바꿔 발행하면 알림이 가지 않았고, ② 여러 건을 한 번에 공개로 바꾸면 전체 사용자에게 알림이 N건 연속으로 갔습니다.</span></li>
+      <li class="kv"><span class="k">원인</span><span class="v">알림을 보내는 코드가 여러 곳에 흩어져 있었습니다. ① 발송 코드가 신규 등록 분기 안에만 있어 수정 경로에는 없었고, ② 일괄 변경은 반복문 안에서 건마다 발송하고 있었습니다. 등록·수정·일괄 변경 세 경로가 알림을 각각 다르게 처리하고 있었습니다.</span></li>
+      <li class="kv"><span class="k">해결</span><span class="v">발송을 한 곳으로 모으고 일괄 변경 반복문에서는 발송 코드를 뺐습니다. 여기에 같은 게시물·메뉴에 대해 1시간 동안 중복 발송을 막는 잠금(중복이면 건너뛰고 로그 기록), 재시도(3회, 30/60/120초 간격), 발송 직전 게시물 상태 재확인을 추가했습니다.</span></li>
+      <li class="kv"><span class="k">결과</span><span class="v">수정 후 발행 시 알림이 정상 발송되고, 일괄 변경 시 <b>중복 발송 0건</b>이 됐습니다. 발송 작업 자체에서 중복을 막기 때문에 나중에 발송 경로가 새로 생겨도 중복 발송이 나지 않습니다.</span></li>
+    </ul>
+  </div>
+</article>
+</section>
 
-    <!-- 7 Merck -->
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">Merck Saizen HCP 처방 리포트 시스템</div>
-      </div>
-      <div class="item-desc">성장호르몬 처방 순응도 리포트 배포 시스템. 관리자가 Excel로 환자 데이터를 업로드하면 HCP별 리포트를 생성·이메일 발송하고 배송/오픈/클릭을 추적.</div>
-      <ul>
-        <li>Excel 환자 데이터 인제스트 파이프라인(행 단위 검증·에러 메시지·에셋 수명 관리)</li>
-        <li>토큰 기반 HCP 접근 + <b>클릭 브리지 리다이렉트로 새로고침/PRG 중복 제거 → 정확한 "1클릭=1오픈" 메일 분석</b> 보장</li>
-        <li>NHN Cloud 메일 이벤트 웹훅 → 통계 집계, AWS KMS 필드 암호화 + 감사 로그</li>
-      </ul>
-      <div class="tags"><span class="t">Laravel 11</span><span class="t">MariaDB</span><span class="t">Blade</span><span class="t">Tailwind</span><span class="t">Docker</span><span class="t">AWS KMS</span><span class="t">NHN Cloud</span><span class="t">PHI보안</span><span class="t">Excel파이프라인</span><span class="t">메일트래킹</span></div>
-    </div>
-
-    <hr class="soft">
-
-    <!-- 8 SPITZEN -->
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">SPITZEN — 차량 판매 웹 플랫폼</div>
-      </div>
-      <div class="item-desc">중고차 판매 웹 플랫폼(관리자 + 사용자 포털). Laravel 11로 서버 셋업부터 배포까지 <b>구축</b>한 비(非)제약 도메인 프로젝트.</div>
-      <ul>
-        <li><span class="cat">구축</span> 초기 서버 셋업 + 관리자 로그인, 관리자·사용자 포털 end-to-end 개발, 차량 매물·상품·스토리·공지 관리</li>
-        <li><span class="cat">인증</span> 네이버/구글/카카오 소셜 로그인 연동(사내 OAuth 패키지 활용)</li>
-        <li><span class="cat">메시징</span> NHN Cloud SMS·이메일 발송 서비스, 인증 메시지 로그</li>
-        <li><span class="cat">보안</span> AES/Hashids URL 파라미터 암호화, XSS 새니타이징(purifier)</li>
-        <li><span class="cat">CI/CD</span> <b>GitHub Actions → AWS EC2 배포 파이프라인 구축</b> — Docker 이미지 빌드, 러너 IP를 보안그룹에 동적 등록(SSH 화이트리스트) 후 docker-compose 배포</li>
-      </ul>
-      <div class="tags"><span class="t">Laravel 11</span><span class="t">PHP 8.2</span><span class="t">MySQL</span><span class="t">Redis</span><span class="t">S3</span><span class="t">Docker</span><span class="t">GitHub Actions</span><span class="t">EC2 배포</span><span class="t">소셜로그인</span><span class="t">URL암호화</span><span class="t">리드구축</span></div>
-    </div>
-  </section>
-
-  <!-- ============ TROUBLE SHOOTING ============ -->
-  <section id="trouble">
-    <div class="sec">Trouble Shooting <span class="ko">대표 문제해결 사례</span></div>
-
-    <div class="case">
-      <div class="case-title">“암호화하되 검색 가능”한 개인정보 저장 <span class="case-proj">Novartis Kisqali</span></div>
-      <div class="case-row"><span class="case-lbl">문제</span><span class="case-body">환자 개인정보(PII)를 KMS로 필드 단위 암호화하자, 카카오 식별자로 회원을 조회·중복 확인하는 기능이 동작하지 않음</span></div>
-      <div class="case-row"><span class="case-lbl">원인</span><span class="case-body">일반적인 랜덤 IV 암호화는 같은 평문도 매번 다른 암호문이 되어, DB 인덱스·유니크 제약으로 검색할 수 없음</span></div>
-      <div class="case-row"><span class="case-lbl">해결</span><span class="case-body">검색 키가 되는 카카오 식별자는 <b>결정적(deterministic) 암호화</b>로 저장해 인덱싱·유니크 제약을 유지하고, 그 외 민감정보는 랜덤 IV로 저장해 보안 강화. 암호화 속성은 직렬화(응답)에서 제외</span></div>
-      <div class="case-row"><span class="case-lbl">결과</span><span class="case-body">개인정보 필드 암호화라는 규제 요구를 지키면서도 회원 조회·중복 검증이 정상 동작 — <b>보안과 기능을 동시 충족</b></span></div>
-    </div>
-
-    <hr class="soft">
-
-    <div class="case">
-      <div class="case-title">메일 오픈/클릭 통계 정확도 확보 <span class="case-proj">Merck Saizen</span></div>
-      <div class="case-row"><span class="case-lbl">문제</span><span class="case-body">HCP에게 발송한 리포트 메일의 ‘열람’ 통계가 실제보다 부풀려져 신뢰할 수 없었음</span></div>
-      <div class="case-row"><span class="case-lbl">원인</span><span class="case-body">클릭 이벤트가 3개 지점에서 각각 기록되고, 새로고침·브라우저 프리페치·PRG 리다이렉트마다 중복 삽입됨</span></div>
-      <div class="case-row"><span class="case-lbl">해결</span><span class="case-body"><b><code>/hcp/enter/{token}</code> 클릭 브리지 리다이렉트 패턴</b>을 도입해, 실제 클릭 1회당 정확히 1건만 기록되도록 기록 지점을 단일화</span></div>
-      <div class="case-row"><span class="case-lbl">결과</span><span class="case-body"><b>“1클릭 = 1오픈”</b>을 보장하여 메일 오픈/클릭 통계 신뢰도 확보</span></div>
-    </div>
-
-    <hr class="soft">
-
-    <div class="case">
-      <div class="case-title">카카오 알림톡 발송 조건 이슈 개선 <span class="case-proj">노보노디스크 환자지원</span></div>
-      <div class="case-row"><span class="case-lbl">문제</span><span class="case-body">환자에게 발송되는 카카오 알림톡이 의도한 발송 대상·시점과 다르게 나가는 문제가 반복 발생</span></div>
-      <div class="case-row"><span class="case-lbl">원인</span><span class="case-body">교육 예약·회원 상태에 따른 발송 대상·시점·순서 조건이 여러 곳에 분산되어 있어, 상태 변화와 발송 트리거가 어긋남</span></div>
-      <div class="case-row"><span class="case-lbl">해결</span><span class="case-body">알림톡 <b>발송 조건·순서·내용을 재정비</b>하여 발송 대상 필터와 트리거 시점을 명확화하고 발송 로직을 정리</span></div>
-      <div class="case-row"><span class="case-lbl">결과</span><span class="case-body">환자 대상 알림톡이 <b>의도한 조건에서만 정확히 발송</b>되도록 안정화 — 규제 민감한 환자 커뮤니케이션 신뢰도 확보</span></div>
-    </div>
-
-    <hr class="soft">
-
-    <div class="case">
-      <div class="case-title">SSH 없는 자동 배포 설계 <span class="case-proj">Novartis Kisqali</span></div>
-      <div class="case-row"><span class="case-lbl">문제</span><span class="case-body">서버에 SSH를 열어두는 배포는 보안 리스크·키 관리 부담이 크고, 수동 작업에 따른 배포 오류가 발생</span></div>
-      <div class="case-row"><span class="case-lbl">원인</span><span class="case-body">SSH·장기 자격증명 기반 배포 방식의 구조적 보안·운영 부담</span></div>
-      <div class="case-row"><span class="case-lbl">해결</span><span class="case-body">GitHub Actions에서 <b>AWS OIDC 키리스 인증</b>으로 아티팩트를 S3에 업로드하고, <b>AWS SSM으로 구성된 서버가 이를 받아 배포</b>하도록 설계 — 인바운드 SSH·장기 자격증명을 제거</span></div>
-      <div class="case-row"><span class="case-lbl">결과</span><span class="case-body">자동화로 수동 작업에 따른 배포 오류를 제거하고 공격 표면을 축소, dev/prod 분리 운영</span></div>
-    </div>
-  </section>
-
-  <!-- ============ SKILLS ============ -->
-  <section id="stack">
-    <div class="sec">Tech Stack <span class="ko">기술 스택</span></div>
-    <table>
-      <tr><td class="k">Language</td><td class="v">PHP · Kotlin · Java · TypeScript/JavaScript · SQL</td></tr>
-      <tr><td class="k">Backend</td><td class="v">Laravel 11/12 · CodeIgniter 3/4 · Spring Boot 3 (jOOQ) · 전자정부 표준프레임워크</td></tr>
-      <tr><td class="k">Frontend</td><td class="v">React 19 · Inertia.js · Blade · Tailwind CSS · Vite</td></tr>
-      <tr><td class="k">Database</td><td class="v">MySQL · MariaDB · MS SQL Server (SQLSRV)</td></tr>
-      <tr><td class="k">Infra / DevOps</td><td class="v">Docker · GitHub Actions (OIDC) · AWS (ECS/Fargate·EC2·S3·KMS·SSM·Secrets Manager) · Redis · Supervisor</td></tr>
-      <tr><td class="k">연동</td><td class="v">카카오(알림톡/브랜드톡/OAuth/싱크/톡캘린더) · NHN Cloud(SMS·Email) · Salesforce · IQVIA · Okta · FCM · NICE 본인인증</td></tr>
-      <tr><td class="k">품질 / 테스트</td><td class="v">Pest · Playwright · PHPStan/Larastan · Pint · PHP CodeSniffer</td></tr>
-    </table>
-  </section>
-
-  <!-- ============ ETC ============ -->
-  <section id="etc">
-    <div class="sec">Etc <span class="ko">기타 활동 · 개인 프로젝트 · 사내 기여</span></div>
-
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">사내 개발 워크플로우 자동화 도구 — agent-team <span class="sub">Claude Code 플러그인 · v0.9 → v0.17</span></div>
-      </div>
-      <div class="item-desc">Figma→코드 생성, 기획→TDD 빌드, 이슈 트래킹을 아우르는 <b>사내 AI 에이전트 플러그인</b>. 그중 <b>Redmine 연동 레이어 전체(11개 슬래시 커맨드)를 설계·구현</b>하고 빌드·Figma 레이어에도 기여.</div>
-      <ul>
-        <li><span class="cat">Redmine 자동화</span> curl + jq 기반 REST 연동 — 이슈 목록(상태 탭·제목 LIKE 검색·담당자 필터), 단건 상세, '담당자=나' 단축 명령</li>
-        <li><span class="cat">플랜 상태머신</span> 로컬 디버그 플랜에 목표 상태/담당자 + <b>라이프사이클 단계(INIT/WAIT/APPLY)</b> 기록, 이슈를 프로젝트 플랜 문서에 자동 링크</li>
-        <li><span class="cat">배포 후 동기화</span> <code>/redmine-apply</code> — 배포 후 계획된 목표 상태·담당자를 Redmine에 이슈 단위로 안전하게 반영(가드), 플랜 단계 대시보드</li>
-        <li><span class="cat">빌드/Figma</span> 교차 검증 빌드 리뷰(review-from-build) 스킬, Figma 픽셀 검증(Validate) 스킬 기여</li>
-      </ul>
-      <div class="tags"><span class="t">Node.js</span><span class="t">Claude Code Plugin</span><span class="t">curl+jq</span><span class="t">Redmine REST API</span><span class="t">Playwright</span><span class="t">시맨틱 버저닝</span><span class="t">AI 개발도구</span><span class="t">상태머신 설계</span><span class="t">DX/생산성</span></div>
-    </div>
-
-    <hr class="soft">
-
-    <div class="item">
-      <ul style="margin-top:0">
-        <li><b>사내 공용 Laravel 패키지 기여</b> — NHN Cloud 이메일 발송·오픈 통계 조회 API(innoboost/nhn-email), 카카오 브랜드메시지 발송 + 예약일 검증(innoboost/nhn-kakao-message). 타입 시그니처·경계 검증·단위테스트 등 팀 컨벤션 준수</li>
-        <li><b>레거시 앱 Docker 컨테이너화</b> — 사내 평가 시스템(CodeIgniter)을 개발/운영 이중 docker-compose + Apache/PHP 튜닝 + cron 스케줄러로 컨테이너화</li>
-        <li><b>사내 ERP/그룹웨어 기여</b> — 전자결재 권한·문서번호 중복, 견적 부가세 계산 버그, 알림 중복 발송, KPI 쿼리 개선</li>
-        <li><b>공공·캠페인 웹 기여</b> — HIV/PrEP·금연 캠페인 사이트 퀴즈·영상 이벤트 구축, AWS Secrets Manager 도입 등 보안 강화</li>
-      </ul>
-    </div>
-
-    <hr class="soft">
-
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">reviewAi — 네이버 SEO 콘텐츠 생성 AI <span class="sub">개인 프로젝트 · Claude 에이전트 시스템</span></div>
-      </div>
-      <div class="item-desc">네이버 블로그·스마트스토어 상위노출용 콘텐츠를 <b>SEO 컨설턴트 페르소나</b>가 DIA 알고리즘을 이해해 기승전결 서사로 작성하는 AI. Claude Code의 <b>skill + agent + command 아키텍처</b>로 파이프라인을 설계.</div>
-      <ul>
-        <li><span class="cat">아키텍처</span> <b>12개 skill · 3개 agent(SEO 컨설턴트/리뷰어·말투 분석) · 11개 command</b>로 역할 분리, 수집→키워드→말투→생성→검토→저장→발행 단계를 <code>/reviewai-run</code> 명령으로 통합 자동화한 파이프라인 구성</li>
-        <li><span class="cat">안전장치</span> 위험도가 높은 '발행' 단계는 자동 실행에서 제외하고 <b>dry-run → confirm → actual 3단계 게이트</b> 적용</li>
-        <li><span class="cat">백엔드</span> FastAPI 서버 + Playwright 크롤링, 네이버 검색광고/오픈API 연동</li>
-        <li><span class="cat">배포/DX</span> Linux·Windows <b>자동화 초기 세팅 스크립트</b>(의존성·venv·Playwright 자동 설치), Claude CLI 부재 시 MOCK 모드</li>
-      </ul>
-      <div class="tags"><span class="t">Python</span><span class="t">FastAPI</span><span class="t">Playwright</span><span class="t">Claude Code</span><span class="t">Skill/Agent/Command</span><span class="t">네이버 SEO</span><span class="t">파이프라인 설계</span></div>
-    </div>
-
-    <hr class="soft">
-
-    <div class="item">
-      <div class="item-head">
-        <div class="item-title">기타 개인 AI 에이전트 프로젝트 <span class="sub">Claude 기반 사이드 프로젝트</span></div>
-      </div>
-      <ul style="margin-top:6px">
-        <li><b>Logline</b> — 유튜브 영상 STT + Claude 요약기(핵심 줄거리 추출). reviewAi의 skill/agent/command 아키텍처 재사용 · FastAPI + Next.js</li>
-        <li><b>KHPT</b> — 한국사능력검정시험 학습 앱. Claude AI 단계별 풀이 해설 · FastAPI + Flutter</li>
-        <li><b>KIPE</b> — RAG 기반 예상기출문제 생성·검증·해설 학습 모바일 앱</li>
-        <li><b>Destiny</b> — 사주(명리) 운세 앱. Flutter · Claude 에이전트 팀(기획/빌드/테스트/리뷰/배포) 기반 개발</li>
-      </ul>
-    </div>
-  </section>
-
+<section>
+<h2>OTHER PROJECTS<span class="ko">기타 프로젝트</span></h2>
+<div class="group-title"><span>회사 업무 · INNOBOOST</span></div>
+<div class="plist">
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">머크 HCP 처방 리포트 시스템<small>단독 개발</small></h3><span class="pdate">2026.06 ~ 2026.07</span></div>
+    <p class="pdesc">엑셀 업로드 처리와 NHN Cloud 메일 이벤트 웹훅으로 발송·오픈·클릭 통계를 집계했습니다. 클릭이 세 곳에서 따로 기록돼 열람 수가 부풀려지던 문제를, 토큰을 쓰는 중간 링크로 기록 지점을 하나로 모아 <b>"1클릭 = 1오픈"</b>으로 맞췄습니다.</p>
+  </div>
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">SPITZEN 차량 판매 웹 플랫폼<small>비제약 분야</small></h3><span class="pdate">2025.08 ~ 2026.02</span></div>
+    <p class="pdesc"><b>서버 설정부터 배포까지 혼자 구축</b>했습니다. 소셜 로그인 3종, URL 파라미터 암호화, AWS EC2 배포.</p>
+  </div>
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">노보노디스크 임상시험 관리 플랫폼</h3><span class="pdate">2025.06 ~ 2026.09</span></div>
+    <p class="pdesc"><b>초기 구조 설정부터 정식 배포까지 주도</b>했습니다. 관리자·마스터 권한 분리, 설문·통계·엑셀, 감사 로그, KMS 암호화.</p>
+  </div>
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">아스트라제네카 환자지원 플랫폼</h3><span class="pdate">2024.08 ~ 2026.06</span></div>
+    <p class="pdesc">약 22개월 운영. <b>카카오 톡캘린더 양방향 연동</b>, cron 기반 알림톡 리마인더(교육 15분 전 환자·간호사 발송), 친구톡 → 브랜드톡 채널 전환.</p>
+  </div>
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">노보노디스크 환자지원 프로그램<small>2개 사업부</small></h3><span class="pdate">2023.05 ~ 진행 중</span></div>
+    <p class="pdesc">CodeIgniter 3로 <b>혼자 개발·운영</b>하며, 공통 구조를 재사용해 여러 제품으로 확장했습니다. NICE 본인인증, AWS ECS/Fargate 배포 구축.</p>
+  </div>
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">사내 공용 패키지·인프라</h3><span class="pdate">상시</span></div>
+    <p class="pdesc"><b>공용 Laravel 패키지</b>(NHN Cloud 메일 발송·오픈 통계 API, 카카오 브랜드메시지), 기존 앱 Docker 컨테이너화, 사내 ERP/그룹웨어, 공공·캠페인 웹 보안 강화.</p>
+  </div>
 </div>
 
-<script>
-  (function(){
-    var links = Array.prototype.slice.call(document.querySelectorAll('.side-nav a'));
-    var map = {};
-    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-    var targets = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+<div class="group-title"><span>개인 프로젝트</span></div>
+<div class="plist">
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">Destiny<small>사주 운세 앱 · 출시</small></h3><span class="pdate">Dart</span></div>
+    <p class="pdesc">약 15,600줄. 사주 계산은 직접 구현하고, <b>LLM은 계산 결과를 문장으로 풀어 쓰는 역할만</b> 맡겨 결과를 지어내지 않게 했습니다.</p>
+  </div>
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">reviewAi<small>블로그 콘텐츠 자동화</small></h3><span class="pdate">Python</span></div>
+    <p class="pdesc">네이버 블로그용 글을 만드는 AI 파이프라인입니다(약 11,700줄, 스킬 12개·에이전트 3개·커맨드 11개). 되돌리기 어려운 <b>'발행'은 자동 실행에서 빼고</b> 임시저장까지만 자동화했습니다.</p>
+  </div>
+  <div class="prow">
+    <div class="prow-head"><h3 class="pname">Logline<small>유튜브 영상 요약</small></h3></div>
+    <p class="pdesc">유튜브 자막을 추출해 요약합니다. 자막 추출이 실패하면 7가지 대체 방식을 차례로 시도하고, 여러 출처의 결과가 얼마나 일치하는지로 <b>신뢰도를 표시</b>합니다.</p>
+  </div>
+</div>
+</section>
 
-    function setActive(id){
-      links.forEach(function(l){ l.classList.remove('active'); });
-      if(map[id]) map[id].classList.add('active');
-    }
+<section>
+<h2>EXPERIENCE<span class="ko">경력</span></h2>
+<article class="item job">
+  <div class="job-head">
+    <div><h3 class="job-name">INNOBOOST</h3><p class="job-role">IT팀<i>·</i><b>백엔드 개발자</b></p></div>
+    <p class="job-period">2021.09 ~ 현재</p>
+  </div>
+  <p>헬스케어 디지털 에이전시. 다국적 제약사의 환자·의료인 대상 웹/모바일 서비스에서 서버·프론트·모바일 API·배포를 담당했고, 최근에는 사내 AI 개발 도구 구축과 적용을 함께 맡고 있습니다. 클라이언트가 추가 기능 개발을 요청했을 때 더 나은 방향을 제안해, 그 안이 최종 확정되어 개발된 경험도 있습니다.</p>
+</article>
+<article class="item job">
+  <div class="job-head">
+    <div><h3 class="job-name">주식회사 다름</h3><p class="job-role">개발팀<i>·</i>웹 퍼블리셔 → <b>백엔드 개발자</b><i>·</i>주임</p></div>
+    <p class="job-period">2019.12 ~ 2021.08</p>
+  </div>
+  <p>웹 에이전시(SI), 기업·공공 웹 구축/리뉴얼 11건. 웹 퍼블리셔로 입사해 Java 백엔드 개발로 역할을 넓혔습니다(전자정부 표준프레임워크 · Oracle/MariaDB).</p>
+</article>
+</section>
 
-    if('IntersectionObserver' in window){
-      var obs = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
-      targets.forEach(function(t){ obs.observe(t); });
-    }
+<section>
+<h2>TECH STACK<span class="ko">기술 스택</span></h2>
+<div class="stack">
+  <div class="srow"><div class="slabel">Language</div><div class="sbadges"><span>Python</span><span>PHP</span><span>Kotlin</span><span>Java</span><span>JavaScript</span><span>TypeScript</span></div></div>
+  <div class="srow"><div class="slabel">Backend</div><div class="sbadges"><span>FastAPI</span><span>Laravel</span><span>CodeIgniter</span><span>Spring Boot</span></div></div>
+  <div class="srow"><div class="slabel">Frontend</div><div class="sbadges"><span>React</span><span>Inertia.js</span><span>Tailwind CSS</span></div></div>
+  <div class="srow"><div class="slabel">Database</div><div class="sbadges"><span>PostgreSQL (pgvector)</span><span>MS SQL Server</span><span>MySQL</span><span>MariaDB</span></div></div>
+  <div class="srow"><div class="slabel">AI / LLM</div><div class="sbadges"><span>RAG</span><span>Claude Code 플러그인 개발</span><span>MCP</span><span>OCR (macOS Vision)</span><span>Gemini API</span><span>Ollama</span><span>BM25 · 벡터 검색</span></div></div>
+  <div class="srow"><div class="slabel">Infra</div><div class="sbadges"><span>AWS (ECS · EC2 · S3 · KMS · SSM)</span><span>Docker</span><span>GitHub Actions</span><span>Redis</span></div></div>
+  <div class="srow"><div class="slabel">연동</div><div class="sbadges"><span>카카오 메시지·로그인</span><span>Salesforce</span><span>Okta SSO</span><span>FCM</span><span>NHN Cloud</span></div></div>
+  <div class="srow"><div class="slabel">Test</div><div class="sbadges"><span>pytest</span><span>Pest</span><span>Playwright</span></div></div>
+</div>
+</section>
 
-    // 최상단이면 '소개' 활성화
-    window.addEventListener('scroll', function(){
-      if(window.scrollY < 80) setActive('top');
-    }, { passive: true });
-    setActive('top');
-  })();
-</script>
+</div>
 </body>
 </html>
