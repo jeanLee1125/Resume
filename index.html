@@ -192,7 +192,7 @@
     <h1>이제안<span class="role">AX Engineer</span></h1>
     <p class="contact"><a href="mailto:lee10abc@naver.com">lee10abc@naver.com</a><br>010-5404-5419</p>
   </div>
-  <p class="tagline">제약·헬스케어 백엔드 7년차 · 사내 AI 개발 도구 구축 · LLM 답변 품질 측정</p>
+  <p class="tagline">개발 7년 · 제약·헬스케어 5년 · 사내 AI 개발 도구 구축 · LLM 답변 품질 측정</p>
 
   <div class="metrics">
     <div class="metric"><div class="num">7년차</div><div class="lbl">백엔드·웹 경력</div></div>
@@ -202,8 +202,8 @@
   </div>
 
   <p class="intro">제약·헬스케어 서비스의 백엔드를 개발하고 운영해 왔습니다. 개인정보 암호화, 외부 시스템 연동, 오래된 시스템의 장기 운영이 주된 업무였고, 최근 2년은 <b>회사에서 AI 개발 도구를 만들고 이를 실제 고객 프로젝트에 적용</b>하는 일을 함께 하고 있습니다.</p>
-  <p>AI가 만든 코드를 어디까지 믿을 수 있는지에 관심이 많습니다. 사내 Claude Code 플러그인에서 <b>Redmine 연동 기능(커맨드 11개)을 혼자 설계·구현</b>했고, AI가 작성한 코드를 다시 검토하는 리뷰 스킬을 처음 만들어 고객 프로젝트 5개에 적용했습니다.</p>
-  <p>개인 프로젝트로는 RAG 시스템의 답변을 원문과 직접 대조해 채점하며 개선하고 있습니다. 개선 전 30%였던 근거 뒷받침률을 <b>튜닝에 쓰지 않은 30문항 기준 80%</b>까지 올렸습니다.</p>
+  <p>AI가 만든 코드를 어디까지 믿을 수 있는지에 관심이 많습니다. 사내 Claude Code 플러그인에서 <b>Redmine 연동 기능(커맨드 11개)을 혼자 설계·구현</b>했고, AI가 작성한 코드의 검증 단계(리뷰 스킬)를 처음 만들어 고객 프로젝트 5개에 적용했습니다.</p>
+  <p>개인 프로젝트로는 RAG 시스템의 답변을 원문과 직접 대조해 채점하며 개선하고 있습니다. 근거 뒷받침률을 튜닝 문항에서 30%→93.3%로 올렸고, <b>튜닝에 쓰지 않은 30문항에서 80%</b>를 확인했습니다.</p>
   <p>UI 퍼블리싱과 Java로 시작해 2021년 9월부터 INNOBOOST에서 다국적 제약사 서비스를 맡고 있습니다. <b>CodeIgniter 3/4 + MS SQL Server 같은 오래된 환경부터 Laravel 12, Kotlin/Spring Boot 3, Python/FastAPI까지</b> 개발·운영했습니다.</p>
   <p class="note">고객사 제품명은 비밀유지를 위해 밝히지 않았습니다. 고객사 프로젝트는 모두 INNOBOOST를 통한 수탁 개발입니다.</p>
 </header>
@@ -226,7 +226,7 @@
 </article>
 
 <article class="item">
-  <h3>AI가 작성한 코드를 다시 검토하는 리뷰 스킬</h3>
+  <h3>AI가 작성한 코드의 검증 단계 — 리뷰 스킬</h3>
   <p>AI가 기능 해석, 테스트, 코드를 모두 작성하면 테스트가 통과해도 <b>스스로 맞다고 확인한 것</b>에 가깝습니다. 그래서 완성된 코드를 별도로 다시 읽고 문제를 찾는 리뷰 스킬을 만들었습니다.</p>
   <ul>
     <li class="kv"><span class="k">검토 방식</span><span class="v">테스트는 통과하지만 동작이 틀린 경우, 테스트가 부족한 경우, 구조가 잘못된 경우를 찾는 데 집중합니다. 테스트 이름이 아니라 내용을 읽고, <b>해당 로직을 지우면 테스트가 실제로 실패하는지</b>까지 확인합니다.</span></li>
@@ -269,7 +269,7 @@
 
   <h4>측정 방법</h4>
   <ul>
-    <li class="kv"><span class="k">직접 채점</span><span class="v">인용한 자료가 답을 뒷받침하는지 뒷받침함 / 일부만 / 아님 / 인용 없음으로 판정하고, 기준은 문서로 정리해 애매한 경우가 나올 때마다 보완했습니다.</span></li>
+    <li class="kv"><span class="k">정답 데이터 구축</span><span class="v">인용한 자료가 답을 뒷받침하는지 뒷받침함 / 일부만 / 아님 / 인용 없음으로 판정하고, 기준은 문서로 정리해 애매한 경우가 나올 때마다 보완했습니다.</span></li>
     <li class="kv"><span class="k">우연 여부 확인</span><span class="v">같은 설정으로 한 번 더 실행해 보니, 해설 문장과 일부 인용(7/30)은 바뀌었지만 답과 근거 판단은 그대로였습니다. 그래서 해설이나 인용만 바뀐 경우는 개선으로 세지 않았습니다.</span></li>
     <li class="kv"><span class="k">새 문항으로 확인</span><span class="v">튜닝에 쓰지 않은 30문항을 뽑아 설정을 바꾸지 않고 한 번 실행했습니다.</span></li>
     <li class="kv"><span class="k">사람·AI 판정 비교</span><span class="v">같은 30문항을 모델도 1차로 판정하게 하고, 제 판정과 문항별로 비교했습니다. <b>일치율 86.7%(26/30)</b>였고, 다른 4문항은 AI가 더 엄격한 경우 2건, 더 느슨한 경우 2건으로 한쪽으로 치우치지 않았습니다. 해설을 쓴 모델이 스스로 채점한 결과라 성능 수치로는 쓰지 않고, 제가 검토할 순서를 정하는 데 씁니다.</span></li>
@@ -289,11 +289,11 @@
   <p class="table-note">세 번 모두 근거 판정이 나빠진 문항은 없었습니다. 튜닝 문항(93.3%)은 그 문항에 맞춰진 영향이 있어, 처음 보는 문항의 80.0%를 실제 성능으로 봅니다.</p>
 
   <div class="result-cards">
-    <div class="rcard"><div class="rlbl">근거 뒷받침률</div><div class="rnum">30% <span>→</span> 80%</div><div class="rsub">24/30 · 직접 채점</div></div>
-    <div class="rcard"><div class="rlbl">정답률</div><div class="rnum">93% <span>→</span> 100%</div><div class="rsub">30/30</div></div>
-    <div class="rcard"><div class="rlbl">"근거 충분" 판단 정확도</div><div class="rnum">60% <span>→</span> 83%</div><div class="rsub">24/29</div></div>
+    <div class="rcard"><div class="rlbl">튜닝 30문항 근거 뒷받침률</div><div class="rnum">30% <span>→</span> 93.3%</div><div class="rsub">같은 문항 · 개선 전후</div></div>
+    <div class="rcard"><div class="rlbl">처음 보는 30문항 근거 뒷받침률</div><div class="rnum">80.0%</div><div class="rsub">24/30 · 최종 설정 그대로 1회</div></div>
+    <div class="rcard"><div class="rlbl">사람·AI 판정 일치율</div><div class="rnum">86.7%</div><div class="rsub">26/30</div></div>
   </div>
-  <p class="table-note">개선 전은 기존 30문항, 개선 후는 튜닝에 쓰지 않은 30문항 기준입니다.</p>
+  <p class="table-note">개선 전후 비교는 튜닝 문항 기준이며, 처음 보는 문항은 최종 설정으로만 측정했습니다. 정답률은 검색 없이도 99%여서 성과 지표로 쓰지 않았습니다.</p>
 
   <ul>
     <li class="kv"><span class="k">남은 문제</span><span class="v">근거가 일부만 있는데도 모델이 "충분"이라고 답한 경우가 <b>5건</b> 남았습니다. 다음 단계는 정답 보기의 내용이 원문에 모두 있을 때만 "충분"으로 보도록 기준을 엄격하게 하는 것입니다.</span></li>
@@ -304,8 +304,8 @@
     <ul>
       <li class="kv"><span class="k">문제</span><span class="v">시스템은 "근거로 뒷받침됨 98%"를 보고했는데, 원문과 직접 대조해 보니 <b>정답의 근거가 실제로 있는 문항은 30%(9/30)</b>였습니다.</span></li>
       <li class="kv"><span class="k">원인</span><span class="v">자동 지표는 <b>인용한 문서가 검색 결과 안에 있는지만</b> 확인하고 있었습니다. 없는 문서를 지어내는 것은 잡지만, 그 문서에 정답 근거가 들어 있는지는 보지 않았습니다. 정답률도 기준으로 쓰기 어려웠습니다. 검색 없이 푼 경우 99.0%(198/200), 검색 자료를 준 경우 98.5%(197/200)로, 모델이 이미 알고 있는 지식으로 맞히고 있었습니다.</span></li>
-      <li class="kv"><span class="k">해결</span><span class="v">기준을 근거 뒷받침률로 바꾸고, 원문과 대조해 채점하는 기준표·채점 시트·재채점 절차를 만들었습니다. 자동 판정은 참고용으로만 남겼습니다.</span></li>
-      <li class="kv"><span class="k">결과</span><span class="v">30%라는 출발점이 정해져 이후 개선 효과를 비교할 수 있게 됐고, 세 번의 개선 후 <b>처음 보는 30문항에서 80.0%</b>가 됐습니다. 정답률 93%만 봤다면 드러나지 않았을 문제입니다.</span></li>
+      <li class="kv"><span class="k">해결</span><span class="v">기준을 근거 뒷받침률로 바꾸고, 원문과 대조한 정답 데이터(기준표·채점 시트)와 재채점 절차를 만들었습니다. 자동 판정은 참고용으로만 남겼습니다.</span></li>
+      <li class="kv"><span class="k">결과</span><span class="v">30%라는 출발점이 정해져 이후 개선 효과를 비교할 수 있게 됐고, 세 번의 개선 후 <b>처음 보는 30문항에서 80.0%</b>가 됐습니다. 정답률만 봤다면 드러나지 않았을 문제입니다.</span></li>
     </ul>
   </div>
 
@@ -327,13 +327,13 @@
 
 <article class="item">
   <h3>노바티스 환자 CRM 플랫폼</h3>
-  <div class="meta-row"><p class="meta">단독 개발 · 2026.07 ~ 진행 중</p><div class="tags"><span>Laravel 12</span><span>PHP 8.3</span><span>MariaDB</span><span>AWS KMS/SSM</span><span>OIDC</span><span>Pest</span><span>Playwright</span><span>RBAC</span><span>카카오 연동</span></div></div>
-  <p><b>설계부터 배포까지 혼자 개발 · 커밋 58/58</b> — 항암제를 처방받은 환자를 위한 CRM입니다. 관리자 웹과 환자용 모바일 앱을 인증 단계부터 분리한 구조로 처음부터 만들었습니다.</p>
+  <div class="meta-row"><p class="meta">단독 개발 · 2026.07 ~ 운영 중</p><div class="tags"><span>Laravel 12</span><span>PHP 8.3</span><span>MariaDB</span><span>AWS KMS/SSM</span><span>OIDC</span><span>Pest</span><span>Playwright</span><span>RBAC</span><span>카카오 연동</span></div></div>
+  <p><b>설계부터 운영 전환까지 혼자 개발 · 현재 운영 중 · 커밋 58/58</b> — 항암제를 처방받은 환자를 위한 CRM입니다. 관리자 웹과 환자용 모바일 앱을 인증 단계부터 분리한 구조로 처음부터 만들었습니다.</p>
   <ul>
     <li class="kv"><span class="k">AI 도구 적용</span><span class="v">사내 AI 개발 플러그인으로 개발했습니다. 테스트 규모와 재검토 횟수는 위 AX 섹션에 정리했습니다.</span></li>
     <li class="kv"><span class="k">보안</span><span class="v">AWS KMS로 개인정보 필드 암호화, 관리자 2단계 인증·계정 잠금·비밀번호 주기 변경, <b>권한 3단계와 권한별 개인정보 마스킹</b>(목록·상세·엑셀 모두)</span></li>
     <li class="kv"><span class="k">기능·연동</span><span class="v">QR/토큰 환자 등록(한 번만 쓸 수 있게 처리), 콘텐츠 4종 관리, 카카오 비즈메시지 대량 발송(야간 발송 차단·예약), 카카오 로그인·싱크, KPI 대시보드</span></li>
-    <li class="kv"><span class="k">배포</span><span class="v">GitHub Actions가 키 없이 AWS에 인증(OIDC)해 Docker 이미지를 S3에 올리면, 서버가 AWS SSM으로 받아 자동 배포합니다. <b>서버 SSH 접속과 장기 보관 키를 없앴습니다.</b></span></li>
+    <li class="kv"><span class="k">운영 전환</span><span class="v">GitHub Actions가 키 없이 AWS에 인증(OIDC)해 Docker 이미지를 S3에 올리면, 서버가 AWS SSM으로 받아 자동 배포합니다. <b>서버 SSH 접속과 장기 보관 키를 없앴습니다.</b></span></li>
   </ul>
   <div class="ts">
     <p class="ts-title">트러블슈팅 — 암호화하면서도 검색이 되는 개인정보 저장</p>
@@ -441,7 +441,7 @@
     <div><h3 class="job-name">INNOBOOST</h3><p class="job-role">IT팀<i>·</i><b>백엔드 개발자</b></p></div>
     <p class="job-period">2021.09 ~ 현재</p>
   </div>
-  <p>헬스케어 디지털 에이전시. 다국적 제약사의 환자·의료인 대상 웹/모바일 서비스에서 서버·프론트·모바일 API·배포를 담당했고, 최근에는 사내 AI 개발 도구 구축과 적용을 함께 맡고 있습니다. 클라이언트가 추가 기능 개발을 요청했을 때 더 나은 방향을 제안해, 그 안이 최종 확정되어 개발된 경험도 있습니다.</p>
+  <p>헬스케어 디지털 에이전시. 다국적 제약사의 환자·의료인 대상 웹/모바일 서비스에서 서버·프론트·모바일 API·배포를 담당했고, 최근에는 사내 AI 개발 도구 구축과 적용을 함께 맡고 있습니다.</p>
 </article>
 <article class="item job">
   <div class="job-head">
@@ -455,8 +455,8 @@
 <section>
 <h2>TECH STACK<span class="ko">기술 스택</span></h2>
 <div class="stack">
-  <div class="srow"><div class="slabel">Language</div><div class="sbadges"><span>Python</span><span>PHP</span><span>Kotlin</span><span>Java</span><span>JavaScript</span><span>TypeScript</span></div></div>
-  <div class="srow"><div class="slabel">Backend</div><div class="sbadges"><span>FastAPI</span><span>Laravel</span><span>CodeIgniter</span><span>Spring Boot</span></div></div>
+  <div class="srow"><div class="slabel">Language</div><div class="sbadges"><span>PHP</span><span>Kotlin</span><span>Java</span><span>Python</span><span>TypeScript</span><span>JavaScript</span></div></div>
+  <div class="srow"><div class="slabel">Backend</div><div class="sbadges"><span>Laravel</span><span>CodeIgniter</span><span>Spring Boot</span><span>FastAPI</span></div></div>
   <div class="srow"><div class="slabel">Frontend</div><div class="sbadges"><span>React</span><span>Inertia.js</span><span>Tailwind CSS</span></div></div>
   <div class="srow"><div class="slabel">Database</div><div class="sbadges"><span>PostgreSQL (pgvector)</span><span>MS SQL Server</span><span>MySQL</span><span>MariaDB</span></div></div>
   <div class="srow"><div class="slabel">AI / LLM</div><div class="sbadges"><span>RAG</span><span>Claude Code 플러그인 개발</span><span>MCP</span><span>OCR (macOS Vision)</span><span>Gemini API</span><span>Ollama</span><span>BM25 · 벡터 검색</span></div></div>
