@@ -204,7 +204,7 @@
   <p class="intro">제약·헬스케어 서비스의 백엔드를 개발하고 운영해 왔습니다. 개인정보 암호화, 외부 시스템 연동, 오래된 시스템의 장기 운영이 주된 업무였고, 최근 2년은 <b>회사에서 AI 개발 도구를 만들고 이를 실제 고객 프로젝트에 적용</b>하는 일을 함께 하고 있습니다.</p>
   <p>AI가 만든 코드를 어디까지 믿을 수 있는지에 관심이 많습니다. 사내 Claude Code 플러그인에서 <b>Redmine 연동 기능(커맨드 11개)을 혼자 설계·구현</b>했고, AI가 작성한 코드의 검증 단계(리뷰 스킬)를 처음 만들어 고객 프로젝트 5개에 적용했습니다.</p>
   <p>개인 프로젝트로는 RAG 시스템의 답변을 원문과 직접 대조해 채점하며 개선하고 있습니다. 근거 뒷받침률을 튜닝 문항에서 30%→93.3%로 올렸고, <b>튜닝에 쓰지 않은 30문항에서 80%</b>를 확인했습니다.</p>
-  <p>UI 퍼블리싱과 Java로 시작해 2021년 9월부터 INNOBOOST에서 다국적 제약사 서비스를 맡고 있습니다. <b>CodeIgniter 3/4 + MS SQL Server 같은 오래된 환경부터 Laravel 12, Kotlin/Spring Boot 3, Python/FastAPI까지</b> 개발·운영했습니다.</p>
+  <p>UI 퍼블리싱과 Java로 시작해 2021년 9월부터 INNOBOOST에서 다국적 제약사 서비스를 맡고 있습니다. <b>CodeIgniter 3/4 + MS SQL Server 같은 오래된 환경부터 Laravel 12, Kotlin/Spring Boot 3까지</b> 개발·운영했고, 개인 프로젝트에서는 AI 코딩 도구로 Python/FastAPI 기반 RAG 시스템을 만들었습니다.</p>
   <p class="note">고객사 제품명은 비밀유지를 위해 밝히지 않았습니다. 고객사 프로젝트는 모두 INNOBOOST를 통한 수탁 개발입니다.</p>
 </header>
 
@@ -259,7 +259,7 @@
 
 <article class="item">
   <h3>한국사 기출 RAG — 답변 품질 측정과 개선</h3>
-  <div class="meta-row"><p class="meta">혼자 진행 · 2026.10 ~ 진행 중</p><div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL + pgvector</span><span>Gemini</span><span>Ollama (bge-m3)</span><span>BM25</span><span>OCR</span><span>pytest · 테스트 1,308개</span></div></div>
+  <div class="meta-row"><p class="meta">혼자 진행 · 2026.10 ~ 개발 중</p><div class="tags"><span>Python</span><span>FastAPI</span><span>PostgreSQL + pgvector</span><span>Gemini</span><span>Ollama (bge-m3)</span><span>BM25</span><span>OCR</span><span>pytest · 테스트 1,308개</span></div></div>
   <p>RAG로 기출문제를 푸는 시스템입니다. 정답률보다 <b>"답의 근거를 실제 자료에서 댈 수 있는가"</b>를 기준으로 삼았고, 제가 직접 원문을 읽고 채점한 결과로 개선 효과를 확인했습니다.</p>
 
   <h4>데이터 준비</h4>
@@ -327,13 +327,13 @@
 
 <article class="item">
   <h3>노바티스 환자 CRM 플랫폼</h3>
-  <div class="meta-row"><p class="meta">단독 개발 · 2026.07 ~ 운영 중</p><div class="tags"><span>Laravel 12</span><span>PHP 8.3</span><span>MariaDB</span><span>AWS KMS/SSM</span><span>OIDC</span><span>Pest</span><span>Playwright</span><span>RBAC</span><span>카카오 연동</span></div></div>
-  <p><b>설계부터 운영 전환까지 혼자 개발 · 현재 운영 중 · 커밋 58/58</b> — 항암제를 처방받은 환자를 위한 CRM입니다. 관리자 웹과 환자용 모바일 앱을 인증 단계부터 분리한 구조로 처음부터 만들었습니다.</p>
+  <div class="meta-row"><p class="meta">단독 개발 · 2026.07 ~ 개발 중</p><div class="tags"><span>Laravel 12</span><span>PHP 8.3</span><span>MariaDB</span><span>AWS KMS/SSM</span><span>OIDC</span><span>Pest</span><span>Playwright</span><span>RBAC</span><span>카카오 연동</span></div></div>
+  <p><b>설계부터 혼자 개발 중 · 커밋 58/58</b> — 항암제를 처방받은 환자를 위한 CRM입니다. 관리자 웹과 환자용 모바일 앱을 인증 단계부터 분리한 구조로 처음부터 만들었습니다.</p>
   <ul>
     <li class="kv"><span class="k">AI 도구 적용</span><span class="v">사내 AI 개발 플러그인으로 개발했습니다. 테스트 규모와 재검토 횟수는 위 AX 섹션에 정리했습니다.</span></li>
     <li class="kv"><span class="k">보안</span><span class="v">AWS KMS로 개인정보 필드 암호화, 관리자 2단계 인증·계정 잠금·비밀번호 주기 변경, <b>권한 3단계와 권한별 개인정보 마스킹</b>(목록·상세·엑셀 모두)</span></li>
     <li class="kv"><span class="k">기능·연동</span><span class="v">QR/토큰 환자 등록(한 번만 쓸 수 있게 처리), 콘텐츠 4종 관리, 카카오 비즈메시지 대량 발송(야간 발송 차단·예약), 카카오 로그인·싱크, KPI 대시보드</span></li>
-    <li class="kv"><span class="k">운영 전환</span><span class="v">GitHub Actions가 키 없이 AWS에 인증(OIDC)해 Docker 이미지를 S3에 올리면, 서버가 AWS SSM으로 받아 자동 배포합니다. <b>서버 SSH 접속과 장기 보관 키를 없앴습니다.</b></span></li>
+    <li class="kv"><span class="k">배포</span><span class="v">GitHub Actions가 키 없이 AWS에 인증(OIDC)해 Docker 이미지를 S3에 올리면, 서버가 AWS SSM으로 받아 자동 배포합니다. <b>서버 SSH 접속과 장기 보관 키를 없앴습니다.</b></span></li>
   </ul>
   <div class="ts">
     <p class="ts-title">트러블슈팅 — 암호화하면서도 검색이 되는 개인정보 저장</p>
@@ -348,7 +348,7 @@
 
 <article class="item">
   <h3>비아트리스 HCP 참여 플랫폼</h3>
-  <div class="meta-row"><p class="meta">주력 프로젝트 · 2023.08 ~ 진행 중</p><div class="tags"><span>CodeIgniter 4</span><span>MS SQL Server</span><span>Salesforce API</span><span>Okta SSO</span><span>Azure Storage</span><span>분석 대시보드</span><span>장기 운영</span></div></div>
+  <div class="meta-row"><p class="meta">주력 프로젝트 · 2023.08 ~ 운영 중</p><div class="tags"><span>CodeIgniter 4</span><span>MS SQL Server</span><span>Salesforce API</span><span>Okta SSO</span><span>Azure Storage</span><span>분석 대시보드</span><span>장기 운영</span></div></div>
   <p><b>관리자 웹 메인 개발 · 커밋 479/541 (88.5%)</b> — 의료인 대상 심포지엄·캠페인·문헌 서비스입니다. 관리자 웹을 3년 넘게 맡아 개발하고 있고, 운영 중에 DB를 MS SQL Server로 옮겼습니다.</p>
   <ul>
     <li class="kv"><span class="k">DB 이전</span><span class="v">MySQL → MS SQL Server 이전 주도 — <b>251개 파일 / +17,398줄, 인덱스 171개 추가</b>. 암호화, PK 생성 방식, 한글 정렬(콜레이션), 날짜 정밀도를 새 DB에 맞게 다시 설계</span></li>
@@ -368,7 +368,7 @@
 
 <article class="item">
   <h3>Dr.Peach 헬스케어 커뮤니티 플랫폼</h3>
-  <div class="meta-row"><p class="meta">자사 서비스 · 2025.05 ~ 진행 중</p><div class="tags"><span>Laravel 11/12</span><span>Inertia.js</span><span>React 19</span><span>TypeScript</span><span>Kotlin</span><span>Spring Boot 3</span><span>jOOQ</span><span>FCM</span><span>재구축</span></div></div>
+  <div class="meta-row"><p class="meta">자사 서비스 · 2025.05 ~ 운영 중</p><div class="tags"><span>Laravel 11/12</span><span>Inertia.js</span><span>React 19</span><span>TypeScript</span><span>Kotlin</span><span>Spring Boot 3</span><span>jOOQ</span><span>FCM</span><span>재구축</span></div></div>
   <p><b>기존 관리자 단독 개발(커밋 38/39) → 재구축 프로젝트 관리자 파트 담당</b> — 병원 정보·커뮤니티·건강 콘텐츠·퀴즈를 제공하는 앱입니다. 기존 관리자(Laravel 11), 모바일 API(Kotlin/Spring), 새로 합친 서비스(Laravel 12) 세 코드베이스를 모두 작업했습니다.</p>
   <ul>
     <li class="kv"><span class="k">재구축</span><span class="v">따로 있던 관리자와 모바일 API를 Laravel 12 + Inertia + React 19 + TypeScript 하나로 합치는 프로젝트에서 관리자 파트 담당</span></li>
@@ -408,7 +408,7 @@
     <p class="pdesc">약 22개월 운영. <b>카카오 톡캘린더 양방향 연동</b>, cron 기반 알림톡 리마인더(교육 15분 전 환자·간호사 발송), 친구톡 → 브랜드톡 채널 전환.</p>
   </div>
   <div class="prow">
-    <div class="prow-head"><h3 class="pname">노보노디스크 환자지원 프로그램<small>2개 사업부</small></h3><span class="pdate">2023.05 ~ 진행 중</span></div>
+    <div class="prow-head"><h3 class="pname">노보노디스크 환자지원 프로그램<small>2개 사업부</small></h3><span class="pdate">2023.05 ~ 운영 중</span></div>
     <p class="pdesc">CodeIgniter 3로 <b>혼자 개발·운영</b>하며, 공통 구조를 재사용해 여러 제품으로 확장했습니다. NICE 본인인증, AWS ECS/Fargate 배포 구축.</p>
   </div>
   <div class="prow">
@@ -455,14 +455,14 @@
 <section>
 <h2>TECH STACK<span class="ko">기술 스택</span></h2>
 <div class="stack">
-  <div class="srow"><div class="slabel">Language</div><div class="sbadges"><span>PHP</span><span>Kotlin</span><span>Java</span><span>Python</span><span>TypeScript</span><span>JavaScript</span></div></div>
-  <div class="srow"><div class="slabel">Backend</div><div class="sbadges"><span>Laravel</span><span>CodeIgniter</span><span>Spring Boot</span><span>FastAPI</span></div></div>
+  <div class="srow"><div class="slabel">Language</div><div class="sbadges"><span>PHP</span><span>Kotlin</span><span>Java</span><span>TypeScript</span><span>JavaScript</span></div></div>
+  <div class="srow"><div class="slabel">Backend</div><div class="sbadges"><span>Laravel</span><span>CodeIgniter</span><span>Spring Boot</span></div></div>
   <div class="srow"><div class="slabel">Frontend</div><div class="sbadges"><span>React</span><span>Inertia.js</span><span>Tailwind CSS</span></div></div>
   <div class="srow"><div class="slabel">Database</div><div class="sbadges"><span>PostgreSQL (pgvector)</span><span>MS SQL Server</span><span>MySQL</span><span>MariaDB</span></div></div>
-  <div class="srow"><div class="slabel">AI / LLM</div><div class="sbadges"><span>RAG</span><span>Claude Code 플러그인 개발</span><span>MCP</span><span>OCR (macOS Vision)</span><span>Gemini API</span><span>Ollama</span><span>BM25 · 벡터 검색</span></div></div>
+  <div class="srow"><div class="slabel">AI / LLM</div><div class="sbadges"><span>RAG</span><span>Claude Code 플러그인 개발</span><span>MCP</span><span>OCR (macOS Vision)</span><span>Gemini API</span><span>Ollama</span><span>BM25 · 벡터 검색</span><span>Python · FastAPI · pytest (개인 프로젝트, AI 도구로 구현)</span></div></div>
   <div class="srow"><div class="slabel">Infra</div><div class="sbadges"><span>AWS (ECS · EC2 · S3 · KMS · SSM)</span><span>Docker</span><span>GitHub Actions</span><span>Redis</span></div></div>
   <div class="srow"><div class="slabel">연동</div><div class="sbadges"><span>카카오 메시지·로그인</span><span>Salesforce</span><span>Okta SSO</span><span>FCM</span><span>NHN Cloud</span></div></div>
-  <div class="srow"><div class="slabel">Test</div><div class="sbadges"><span>pytest</span><span>Pest</span><span>Playwright</span></div></div>
+  <div class="srow"><div class="slabel">Test</div><div class="sbadges"><span>Pest</span><span>Playwright</span></div></div>
 </div>
 </section>
 
